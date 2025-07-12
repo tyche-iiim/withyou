@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tyche x IIIM - Tu Futuro Profesional en Italia</title>
+    <title>Tyche x IIIM - Your Professional Future in Italy</title>
     <style>
-        /* Mantieni tutti gli stili CSS esistenti qui */
         * {
             margin: 0;
             padding: 0;
@@ -609,13 +608,13 @@
             text-align: center;
         }
 
-        /* Stilizza il link come un pulsante */
+        /* Style the link as a button */
         .referral-button-link { 
             display: inline-block;
             padding: 1.5rem 3rem;
             background: linear-gradient(45deg, #ffd700, #ffed4e);
             color: #1e5fa8;
-            text-decoration: none; /* Rimuovi la sottolineatura del link */
+            text-decoration: none; /* Remove link underline */
             font-weight: 700;
             font-size: 1.1rem;
             border-radius: 50px;
@@ -639,214 +638,8 @@
             font-style: italic;
         }
 
-        /* Questi stili relativi al modal non saranno più usati, ma li lascio nel caso volessi ripristinare in futuro */
-        .modal {
-            display: none; 
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-        }
-
-        .modal-content {
-            background: linear-gradient(135deg, #1e5fa8 0%, #2a6bb3 100%);
-            margin: 2% auto;
-            padding: 0;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 600px;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-        }
-
-        .modal-header {
-            padding: 2rem;
-            text-align: center;
-            color: white;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .modal-header h2 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            color: #ffd700;
-        }
-
-        .modal-header p {
-            opacity: 0.9;
-            font-size: 1rem;
-        }
-
-        .close {
-            position: absolute;
-            right: 1.5rem;
-            top: 1.5rem;
-            color: white;
-            font-size: 2rem;
-            font-weight: bold;
-            cursor: pointer;
-            opacity: 0.7;
-            transition: opacity 0.3s;
-        }
-
-        .close:hover {
-            opacity: 1;
-        }
-
-        .modal-form {
-            padding: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: white;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 1rem;
-            backdrop-filter: blur(10px);
-        }
-
-        .form-group input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .form-group input:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: #ffd700;
-            box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-        }
-
-        .form-group select {
-            cursor: pointer;
-        }
-
-        .form-group select option {
-            background: #1e5fa8;
-            color: white;
-        }
-
-        .payment-fields {
-            display: none;
-            margin-top: 1rem;
-        }
-
-        .payment-fields.active {
-            display: block;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 1rem;
-            background: linear-gradient(45deg, #ffd700, #ffed4e);
-            color: #1e5fa8;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.4);
-        }
-
-        .referral-code-display {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-top: 1.5rem;
-            text-align: center;
-            border: 2px solid #ffd700;
-        }
-
-        .referral-code-display h3 {
-            color: #ffd700;
-            margin-bottom: 0.5rem;
-        }
-
-        .referral-code {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: white;
-            background: rgba(255, 215, 0, 0.2);
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            display: inline-block;
-            margin: 0.5rem 0;
-            letter-spacing: 2px;
-        }
-
-        @media (max-width: 768px) {
-            .modal-content {
-                width: 95%;
-                margin: 5% auto;
-            }
-            
-            .modal-header,
-            .modal-form {
-                padding: 1.5rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .referral-process {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .referral-title {
-                font-size: 2rem;
-            }
-
-            .referral-subtitle {
-                font-size: 1.1rem;
-            }
-
-            .referral-steps {
-                padding: 2rem;
-            }
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: float 2s ease-in-out infinite;
-            z-index: 2;
-            display: none;
-        }
-
-        .scroll-arrow {
-            color: white;
-            font-size: 2rem;
-            opacity: 0.7;
-        }
+        /* Modal styles removed for direct redirect */
+        .modal { display: none; }
     </style>
 </head>
 <body>
@@ -859,22 +652,22 @@
                     <div class="iiim-section">
                         <div class="iiim-left">IIIM</div>
                         <div class="iiim-description">
-                            (Instituto Internacional de Idiomas para Migrantes)
+                            (International Institute of Languages for Migrants)
                         </div>
                     </div>
                 </div>
             </div>
             
-            <h1 class="main-title">Tu Futuro Profesional en Italia</h1>
-            <p class="subtitle">Conectando talento sudamericano con oportunidades laborales en Italia</p>
+            <h1 class="main-title">Your Professional Future in Italy</h1>
+            <p class="subtitle">Connecting South American talent with job opportunities in Italy</p>
             <p class="motto">
-                Para el trabajador, el proceso con Tyche será gratuito porque migrar ya cuesta el corazón.
-                ¡Contra la trata de personas, invertimos el concepto de migración!
+                For the worker, the process with Tyche will be free because migrating already costs the heart.
+                Against human trafficking, we reverse the concept of migration!
             </p>
 
             <div class="business-model-box">
-                <h3>Un Nuevo Modelo de Negocio para Nuevos Mercados</h3>
-                <p>Nuestra visión es trascender las barreras tradicionales, creando un puente seguro y ético para la migración laboral. Este enfoque no solo beneficia a los trabajadores, sino que también abre vastas oportunidades en mercados emergentes y optimiza la oferta global de talento.</p>
+                <h3>A New Business Model for New Markets</h3>
+                <p>Our vision is to transcend traditional barriers, creating a safe and ethical bridge for labor migration. This approach not only benefits workers but also opens vast opportunities in emerging markets and optimizes the global talent supply.</p>
             </div>
         </div>
         
@@ -885,37 +678,37 @@
 
     <section class="features">
         <div class="container">
-            <h2 class="cta-title" style="text-align: center; color: white;">¿Por Qué Elegir Italia?</h2>
+            <h2 class="cta-title" style="text-align: center; color: white;">Why Choose Italy?</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">🏢</div>
-                    <h3 class="feature-title">Oportunidades Laborales</h3>
-                    <p class="feature-description">Miles de puestos de trabajo disponibles en sectores como construcción, hostelería, agricultura y servicios</p>
+                    <h3 class="feature-title">Job Opportunities</h3>
+                    <p class="feature-description">Thousands of job vacancies available in sectors such as construction, hospitality, agriculture, and services</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">💰</div>
-                    <h3 class="feature-title">Salarios Competitivos</h3>
-                    <p class="feature-description">Remuneraciones justas y beneficios sociales que te permitirán prosperar y ayudar a tu familia</p>
+                    <h3 class="feature-title">Competitive Salaries</h3>
+                    <p class="feature-description">Fair wages and social benefits that will allow you to prosper and help your family</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🎓</div>
-                    <h3 class="feature-title">Capacitación GRATUITA Integral</h3>
-                    <p class="feature-description">Un curso de italiano de 80 horas totalmente gratuito, capacitación laboral y orientación para tu integración exitosa</p>
+                    <h3 class="feature-title">FREE Comprehensive Training</h3>
+                    <p class="feature-description">A completely free 80-hour Italian language course, job training, and guidance for successful integration</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🤝</div>
-                    <h3 class="feature-title">Acompañamiento Completo</h3>
-                    <p class="feature-description">Te acompañamos desde el día uno: documentación, alojamiento y inserción laboral</p>
+                    <h3 class="feature-title">Full Support</h3>
+                    <p class="feature-description">We support you from day one: documentation, accommodation, and job placement</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🌍</div>
-                    <h3 class="feature-title">Calidad de Vida</h3>
-                    <p class="feature-description">Vive en un país con rica cultura, excelente gastronomía y sistema de salud de calidad</p>
+                    <h3 class="feature-title">Quality of Life</h3>
+                    <p class="feature-description">Live in a country with rich culture, excellent gastronomy, and a quality healthcare system</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📋</div>
-                    <h3 class="feature-title">Proceso Legal</h3>
-                    <p class="feature-description">Gestión completa de permisos de trabajo y residencia de forma totalmente legal</p>
+                    <h3 class="feature-title">Legal Process</h3>
+                    <p class="feature-description">Complete management of work and residence permits in a fully legal manner</p>
                 </div>
             </div>
         </div>
@@ -923,27 +716,27 @@
 
     <section class="process">
         <div class="container">
-            <h2 class="process-title">Cómo Funciona</h2>
+            <h2 class="process-title">How It Works</h2>
             <div class="process-steps">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3 class="step-title">Regístrate</h3>
-                    <p class="step-description">Completa nuestro formulario con tus datos personales y experiencia laboral</p>
+                    <h3 class="step-title">Register</h3>
+                    <p class="step-description">Complete our form with your personal details and work experience</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3 class="step-title">Evaluación y Curso Gratuito</h3>
-                    <p class="step-description">Nuestro equipo evaluará tu perfil y dará inicio al curso de italiano GRATUITO de 80 horas</p>
+                    <h3 class="step-title">Evaluation & Free Course</h3>
+                    <p class="step-description">Our team will evaluate your profile and start the FREE 80-hour Italian language course</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3 class="step-title">Entrevistas y Contrato</h3>
-                    <p class="step-description">Durante el curso, comenzarás las entrevistas online. Si eres seleccionado, firmarás tu contrato de empleo</p>
+                    <h3 class="step-title">Interviews & Contract</h3>
+                    <p class="step-description">During the course, you will begin online interviews. If selected, you will sign your employment contract</p>
                 </div>
                 <div class="step">
                     <div class="step-number">4</div>
-                    <h3 class="step-title">Viaje y Permiso de Residencia</h3>
-                    <p class="step-description">Con tu contrato en mano, te ayudamos a gestionar tu permiso de trabajo y residencia en la embajada para tu viaje a Italia</p>
+                    <h3 class="step-title">Travel & Residence Permit</h3>
+                    <p class="step-description">With your contract in hand, we help you manage your work and residence permit at the embassy for your trip to Italy</p>
                 </div>
             </div>
         </div>
@@ -951,72 +744,72 @@
 
     <section class="referral">
         <div class="container">
-            <h2 class="referral-title">¡Conviértete en Agente Migratorio!</h2>
-            <p class="referral-subtitle">¿Conoces a alguien que quiera trabajar en Italia? ¡Ayúdalos a cumplir su sueño y gana por cada inserción exitosa!</p>
+            <h2 class="referral-title">Become a Migration Agent!</h2>
+            <p class="referral-subtitle">Do you know someone who wants to work in Italy? Help them fulfill their dream and earn for each successful placement!</p>
             
             <div class="referral-content">
                 <div class="referral-card">
                     <div class="referral-icon">💼</div>
-                    <h3 class="referral-card-title">Gana por Colocación</h3>
-                    <p class="referral-card-description">Como agente, recibirás una comisión por cada persona que se una con éxito a nuestro programa a través de tu gestión</p>
+                    <h3 class="referral-card-title">Earn per Placement</h3>
+                    <p class="referral-card-description">As an agent, you will receive a commission for each person who successfully joins our program through your management</p>
                 </div>
                 
                 <div class="referral-card">
                     <div class="referral-icon">🤝</div>
-                    <h3 class="referral-card-title">Impacto Social</h3>
-                    <p class="referral-card-description">Ayuda a otros a encontrar nuevas oportunidades y construir un futuro mejor en Italia</p>
+                    <h3 class="referral-card-title">Social Impact</h3>
+                    <p class="referral-card-description">Help others find new opportunities and build a better future in Italy</p>
                 </div>
                 
                 <div class="referral-card">
                     <div class="referral-icon">📈</div>
-                    <h3 class="referral-card-title">Flexibilidad</h3>
-                    <p class="referral-card-description">Trabaja a tu propio ritmo, expandiendo tu red y generando ingresos</p>
+                    <h3 class="referral-card-title">Flexibility</h3>
+                    <p class="referral-card-description">Work at your own pace, expanding your network and generating income</p>
                 </div>
 
                 <div class="referral-card">
                     <div class="referral-icon">🌐</div>
-                    <h3 class="referral-card-title">Red Internacional</h3>
-                    <p class="referral-card-description">Ampliarás tu red profesional y personal, conectando personas y culturas a nivel global.</p>
+                    <h3 class="referral-card-title">International Network</h3>
+                    <p class="referral-card-description">You will expand your professional and personal network, connecting people and cultures globally.</p>
                 </div>
             </div>
             
             <div class="referral-steps">
-                <h3 class="referral-steps-title">¿Cómo Funciona el Programa de Agentes?</h3>
+                <h3 class="referral-steps-title">How Does the Agent Program Work?</h3>
                 <div class="referral-process">
                     <div class="referral-step">
                         <div class="referral-step-number">1</div>
-                        <p>Contáctanos para ser agente</p>
+                        <p>Contact us to be an agent</p>
                     </div>
                     <div class="referral-step">
                         <div class="referral-step-number">2</div>
-                        <p>Recibe tu material de apoyo</p>
+                        <p>Receive your support materials</p>
                     </div>
                     <div class="referral-step">
                         <div class="referral-step-number">3</div>
-                        <p>Guía a nuevos talentos</p>
+                        <p>Guide new talents</p>
                     </div>
                     <div class="referral-step">
                         <div class="referral-step-number">4</div>
-                        <p>¡Gana por cada colocación!</p>
+                        <p>Earn for each placement!</p>
                     </div>
                 </div>
             </div>
             
             <div class="referral-cta">
-                <a href="https://forms.gle/8TyvNW69Aps4hnpE9" target="_blank" class="referral-button-link" rel="noopener noreferrer">
-                    Quiero Ser Agente Migratorio
+                <a href="https://forms.gle/zfwD56SVvpEDKkQJA" target="_blank" class="referral-button-link" rel="noopener noreferrer">
+                    I Want to Be a Migration Agent
                 </a>
-                <p class="referral-note">* Las comisiones serán discutidas y formalizadas una vez que te unas al programa de agentes.</p>
+                <p class="referral-note">* Commissions will be discussed and formalized once you join the agent program.</p>
             </div>
         </div>
     </section>
 
     <section class="cta">
         <div class="container">
-            <h2 class="cta-title">¡Comienza Tu Nueva Vida Hoy!</h2>
-            <p class="cta-subtitle">No pierdas esta oportunidad única para cambiar tu futuro. Miles de sudamericanos ya están trabajando con éxito en Italia.</p>
+            <h2 class="cta-title">Start Your New Life Today!</h2>
+            <p class="cta-subtitle">Don't miss this unique opportunity to change your future. Thousands of South Americans are already successfully working in Italy.</p>
             <a href="https://forms.gle/v3JiFK9ZUdDPbFGa8" target="_blank" class="cta-button" rel="noopener noreferrer">
-                Inscríbete Ahora
+                Enroll Now
             </a>
         </div>
     </section>
@@ -1024,25 +817,25 @@
     <footer class="footer">
         <div class="footer-content">
             <h3 class="footer-title">TYCHE x IIIM</h3>
-            <p>Tu puente hacia nuevas oportunidades laborales en Italia</p>
+            <p>Your bridge to new job opportunities in Italy</p>
             <div class="contact-info">
                 <p>✉️ Email: <a href="mailto:ilim_project@tycheilma.com" class="contact-link">ilim_project@tycheilma.com</a></p>
                 <p>📞 WhatsApp: <a href="https://wa.me/393462267861" class="contact-link">+39 346 226 7861</a></p>
                 <p>📱 Instagram: <a href="https://instagram.com/tyche_ilma" class="contact-link" target="_blank">@tyche_ilma</a> | <a href="https://instagram.com/ilim_project" class="contact-link" target="_blank">@ilim_project</a></p>
             </div>
             <p class="motto" style="margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 1rem;">
-                Para el trabajador, el proceso con Tyche será gratuito porque migrar ya cuesta el corazón.
-                ¡Contra la trata de personas, invertimos el concepto de migración!
+                For the worker, the process with Tyche will be free because migrating already costs the heart.
+                Against human trafficking, we reverse the concept of migration!
             </p>
-            <p style="margin-top: 1rem; opacity: 0.6;">© 2025 TYCHE x IIIM. Todos los derechos reservados.</p>
+            <p style="margin-top: 1rem; opacity: 0.6;">© 2025 TYCHE x IIIM. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Le funzioni e variabili relative al modal sono state rimosse in quanto non più necessarie
-        // se il bottone reindirizza direttamente.
+        // JavaScript functions and variables related to the modal have been removed
+        // as they are no longer needed for direct redirection.
 
-        // Codice JavaScript per le animazioni (mantenuto)
+        // Existing scroll animation code (maintained)
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1065,7 +858,7 @@
             observer.observe(el);
         });
 
-        // Parallax effect (mantenuto, anche se non ha un impatto visibile sul ::before in questo modo)
+        // Parallax effect (maintained, though visual impact on ::before is limited this way)
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
         });
