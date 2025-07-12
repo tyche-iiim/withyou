@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tyche x IIIM - Your Professional Future in Italy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: #1e5fa8;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Header Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1e5fa8 0%, #2a6bb3 50%, #1e5fa8 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 6s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .logo-section {
+            margin-bottom: 3rem;
+            animation: slideInLeft 1s ease-out 0.2s both;
+        }
+
+        .horizontal-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .tyche-logo {
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 6px;
+            color: white;
+        }
+
+        .divider {
+            font-size: 3rem;
+            color: white;
+            animation: pulse 2s infinite;
+        }
+
+        .iiim-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .iiim-left {
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 6px;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .iiim-description {
+            font-size: 1rem;
+            line-height: 1.4;
+            opacity: 0.9;
+            text-align: center;
+        }
+
+        .main-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 2rem 0;
+            background: linear-gradient(45deg, #fff, #f0f8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .motto {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-top: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 1s both;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            padding-top: 1rem;
+        }
+
+        /* New Business Model Box */
+        .business-model-box {
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid #ffd700;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            color: white;
+            animation: fadeInUp 1s ease-out 1.2s both;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .business-model-box h3 {
+            font-size: 1.5rem;
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+
+        .business-model-box p {
+            font-size: 1rem;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 2rem;
+            background: linear-gradient(180deg, #1e5fa8 0%, #1a4f91 100%);
+            position: relative;
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            color: white;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: #ffd700;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #2a6bb3 0%, #1e5fa8 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .cta-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #1e5fa8;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+            animation: fadeInUp 1s ease-out 0.4s both;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+            background: linear-gradient(45deg, #ffed4e, #ffd700);
+        }
+
+        /* Process Section */
+        .process {
+            padding: 5rem 2rem;
+            background: linear-gradient(180deg, #1a4f91 0%, #164080 100%);
+        }
+
+        .process-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .step {
+            text-align: center;
+            color: white;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #1e5fa8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .step-description {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0d2847;
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+
+        .contact-info {
+            margin: 1rem 0;
+            opacity: 0.8;
+        }
+
+        .contact-link {
+            color: #ffd700;
+            text-decoration: none;
+        }
+
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .horizontal-logo {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .tyche-logo {
+                font-size: 2.5rem;
+                letter-spacing: 4px;
+            }
+            
+            .iiim-left {
+                font-size: 2.5rem;
+                letter-spacing: 4px;
+            }
+            
+            .iiim-description {
+                font-size: 0.9rem;
+            }
+
+            .main-title {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .motto {
+                font-size: 1rem;
+            }
+
+            .business-model-box {
+                margin-top: 2rem;
+                padding: 1rem;
+            }
+            .business-model-box h3 {
+                font-size: 1.2rem;
+            }
+            .business-model-box p {
+                font-size: 0.9rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .referral-process {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        /* Referral Section */
+        .referral {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #164080 0%, #1a4f91 50%, #1e5fa8 100%);
+            color: white;
+            position: relative;
+        }
+
+        .referral::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, transparent 100%);
+        }
+
+        .referral-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease-out;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .referral-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .referral-content {
+            display: grid;
+            /* Force two columns of flexible sizes, but at least 300px */
+            grid-template-columns: repeat(2, minmax(300px, 1fr)); 
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+            justify-content: center; /* Center cards in the container */
+            align-items: start;
+        }
+
+        /* Media query for smaller screens, to revert to 1 column */
+        @media (max-width: 650px) { /* You might need to adjust this breakpoint */
+            .referral-content {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        .referral-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            color: white;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .referral-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .referral-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        .referral-card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+
+        .referral-card-description {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .referral-steps {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .referral-steps-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 2.5rem;
+            color: #ffd700;
+        }
+
+        .referral-process {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .referral-step {
+            text-align: center;
+        }
+
+        .referral-step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #1e5fa8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+
+        .referral-step p {
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .referral-cta {
+            text-align: center;
+        }
+
+        .referral-button {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #1e5fa8;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+            animation: fadeInUp 1s ease-out 0.4s both;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .referral-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+            background: linear-gradient(45deg, #ffed4e, #ffd700);
+        }
+
+        .referral-note {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            font-style: italic;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1e5fa8 0%, #2a6bb3 100%);
+            margin: 2% auto;
+            padding: 0;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-header {
+            padding: 2rem;
+            text-align: center;
+            color: white;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .modal-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: #ffd700;
+        }
+
+        .modal-header p {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        .close {
+            position: absolute;
+            right: 1.5rem;
+            top: 1.5rem;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .close:hover {
+            opacity: 1;
+        }
+
+        .modal-form {
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: white;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #ffd700;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .form-group select option {
+            background: #1e5fa8;
+            color: white;
+        }
+
+        .payment-fields {
+            display: none;
+            margin-top: 1rem;
+        }
+
+        .payment-fields.active {
+            display: block;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #1e5fa8;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .referral-code-display {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1.5rem;
+            text-align: center;
+            border: 2px solid #ffd700;
+        }
+
+        .referral-code-display h3 {
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+        }
+
+        .referral-code {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            background: rgba(255, 215, 0, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 0.5rem 0;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+            }
+            
+            .modal-header,
+            .modal-form {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .referral-process {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .referral-title {
+                font-size: 2rem;
+            }
+
+            .referral-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .referral-steps {
+                padding: 2rem;
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: float 2s ease-in-out infinite;
+            z-index: 2;
+            display: none;
+        }
+
+        .scroll-arrow {
+            color: white;
+            font-size: 2rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="logo-section">
+                <div class="horizontal-logo">
+                    <div class="tyche-logo">TYCHE</div>
+                    <div class="divider">✕</div>
+                    <div class="iiim-section">
+                        <div class="iiim-left">IIIM</div>
+                        <div class="iiim-description">
+                            (International Institute of Languages for Migrants)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h1 class="main-title">Your Professional Future in Italy</h1>
+            <p class="subtitle">Connecting South American talent with job opportunities in Italy</p>
+            <p class="motto">
+                For the worker, the process with Tyche will be free because migrating already costs the heart.
+                Against human trafficking, we reverse the concept of migration!
+            </p>
+
+            <div class="business-model-box">
+                <h3>A New Business Model for New Markets</h3>
+                <p>Our vision is to transcend traditional barriers, creating a safe and ethical bridge for labor migration. This approach not only benefits workers but also opens vast opportunities in emerging markets and optimizes the global talent supply.</p>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">↓</div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="cta-title" style="text-align: center; color: white;">Why Choose Italy?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🏢</div>
+                    <h3 class="feature-title">Job Opportunities</h3>
+                    <p class="feature-description">Thousands of jobs available in sectors like construction, hospitality, agriculture, and services</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3 class="feature-title">Competitive Salaries</h3>
+                    <p class="feature-description">Fair wages and social benefits that will allow you to prosper and help your family</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h3 class="feature-title">FREE Comprehensive Training</h3>
+                    <p class="feature-description">An entirely free 80-hour Italian language course, job training, and guidance for your successful integration</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3 class="feature-title">Complete Support</h3>
+                    <p class="feature-description">We accompany you from day one: documentation, accommodation, and job placement</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3 class="feature-title">Quality of Life</h3>
+                    <p class="feature-description">Live in a country with rich culture, excellent gastronomy, and quality healthcare system</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h3 class="feature-title">Legal Process</h3>
+                    <p class="feature-description">Complete management of work and residence permits in a fully legal manner</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process">
+        <div class="container">
+            <h2 class="process-title">How It Works</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Register</h3>
+                    <p class="step-description">Complete our form with your personal details and work experience</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Evaluation and Free Course</h3>
+                    <p class="step-description">Our team will evaluate your profile, and you will begin the FREE 80-hour Italian language course</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Interviews and Contract</h3>
+                    <p class="step-description">During the course, you will begin online interviews. If selected, you will sign your employment contract</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Travel and Residence Permit</h3>
+                    <p class="step-description">With your contract in hand, we help you manage your work and residence permit at the embassy for your trip to Italy</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="referral">
+        <div class="container">
+            <h2 class="referral-title">Become a Migration Agent!</h2>
+            <p class="referral-subtitle">Do you know someone who wants to work in Italy? Help them fulfill their dream and earn for each successful placement!</p>
+            
+            <div class="referral-content">
+                <div class="referral-card">
+                    <div class="referral-icon">💼</div>
+                    <h3 class="referral-card-title">Earn per Placement</h3>
+                    <p class="referral-card-description">As an agent, you will receive a commission for each person who successfully joins our program through your management</p>
+                </div>
+                
+                <div class="referral-card">
+                    <div class="referral-icon">🤝</div>
+                    <h3 class="referral-card-title">Social Impact</h3>
+                    <p class="referral-card-description">Help others find new opportunities and build a better future in Italy</p>
+                </div>
+                
+                <div class="referral-card">
+                    <div class="referral-icon">📈</div>
+                    <h3 class="referral-card-title">Flexibility</h3>
+                    <p class="referral-card-description">Work at your own pace, expanding your network and generating income</p>
+                </div>
+
+                <div class="referral-card">
+                    <div class="referral-icon">🌐</div>
+                    <h3 class="referral-card-title">International Network</h3>
+                    <p class="referral-card-description">You will expand your professional and personal network, connecting people and cultures globally.</p>
+                </div>
+            </div>
+            
+            <div class="referral-steps">
+                <h3 class="referral-steps-title">How Does the Agent Program Work?</h3>
+                <div class="referral-process">
+                    <div class="referral-step">
+                        <div class="referral-step-number">1</div>
+                        <p>Contact us to become an agent</p>
+                    </div>
+                    <div class="referral-step">
+                        <div class="referral-step-number">2</div>
+                        <p>Receive your support materials</p>
+                    </div>
+                    <div class="referral-step">
+                        <div class="referral-step-number">3</div>
+                        <p>Guide new talents</p>
+                    </div>
+                    <div class="referral-step">
+                        <div class="referral-step-number">4</div>
+                        <p>Earn for each placement!</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="referral-cta">
+                <button onclick="openReferralModal()" class="referral-button">
+                    I Want to Be a Migration Agent
+                </button>
+                <p class="referral-note">* Commissions will be discussed and formalized once you join the agent program.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2 class="cta-title">Start Your New Life Today!</h2>
+            <p class="cta-subtitle">Don't miss this unique opportunity to change your future. Thousands of South Americans are already successfully working in Italy.</p>
+            <a href="https://forms.gle/v3JiFK9ZUdDPbFGa8" target="_blank" class="cta-button" rel="noopener noreferrer">
+                Enroll Now
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <h3 class="footer-title">TYCHE x IIIM</h3>
+            <p>Your bridge to new job opportunities in Italy</p>
+            <div class="contact-info">
+                <p>✉️ Email: <a href="mailto:ilim_project@tycheilma.com" class="contact-link">ilim_project@tycheilma.com</a></p>
+                <p>📞 WhatsApp: <a href="https://wa.me/393462267861" class="contact-link">+39 346 226 7861</a></p>
+                <p>📱 Instagram: <a href="https://instagram.com/tyche_ilma" class="contact-link" target="_blank">@tyche_ilma</a> | <a href="https://instagram.com/ilim_project" class="contact-link" target="_blank">@ilim_project</a></p>
+            </div>
+            <p class="motto" style="margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 1rem;">
+                For the worker, the process with Tyche will be free because migrating already costs the heart.
+                Against human trafficking, we reverse the concept of migration!
+            </p>
+            <p style="margin-top: 1rem; opacity: 0.6;">© 2025 TYCHE x IIIM. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="referralModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeReferralModal()">&times;</span>
+                <h2>Become a Migration Agent!</h2>
+                <p>Complete your details, and we'll contact you to explain how you can be part of our agent team and earn for each successful placement.</p>
+            </div>
+            <div class="modal-form">
+                <form id="referralForm" onsubmit="submitAgentForm(event)">
+                    <div class="form-group">
+                        <label for="nombre">First Name *</label>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Your first name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="apellido">Last Name *</label>
+                        <input type="text" id="apellido" name="apellido" required placeholder="Your last name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required placeholder="your@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="nacion">Nation *</label>
+                        <select id="nacion" name="nacion" required>
+                            <option value="">Select your country</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Bolivia">Bolivia</option>
+                            <option value="Brazil">Brazil</option>
+                            <option value="Chile">Chile</option>
+                            <option value="Colombia">Colombia</option>
+                            <option value="Ecuador">Ecuador</option>
+                            <option value="Paraguay">Paraguay</option>
+                            <option value="Peru">Peru</option>
+                            <option value="Uruguay">Uruguay</option>
+                            <option value="Venezuela">Venezuela</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="ciudad">City of Residence *</label>
+                        <input type="text" id="ciudad" name="ciudad" required placeholder="Your current city">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="documento">ID Document *</label>
+                        <input type="text" id="documento" name="documento" required placeholder="ID or passport number">
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send My Agent Application</button>
+                </form>
+                
+                <div id="agentConfirmationDisplay" class="referral-code-display" style="display: none;">
+                    <h3>Application Received!</h3>
+                    <p style="color: white; margin-top: 1rem;">
+                        Thank you for your interest in being a migration agent. We will contact you soon to explain the details and next steps.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functions
+        function openReferralModal() {
+            document.getElementById('referralModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            // Reset form and confirmation display when opening
+            document.getElementById('referralForm').style.display = 'block';
+            document.getElementById('agentConfirmationDisplay').style.display = 'none';
+            document.getElementById('referralForm').reset();
+        }
+
+        function closeReferralModal() {
+            document.getElementById('referralModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('referralModal');
+            if (event.target == modal) {
+                closeReferralModal();
+            }
+        }
+
+        // Submit Agent Form (replaces generateReferralCode)
+        function submitAgentForm(event) {
+            event.preventDefault();
+            
+            const nombre = document.getElementById('nombre').value;
+            const apellido = document.getElementById('apellido').value;
+            const email = document.getElementById('email').value;
+            const nacion = document.getElementById('nacion').value;
+            const ciudad = document.getElementById('ciudad').value;
+            const documento = document.getElementById('documento').value;
+            
+            // Here you would typically send the agent application data to your backend
+            console.log('Agent Application Data:', {
+                nombre: nombre,
+                apellido: apellido,
+                email: email,
+                nacion: nacion,
+                ciudad: ciudad,
+                documento: documento
+            });
+
+            // Simulate success and show confirmation message
+            document.getElementById('referralForm').style.display = 'none';
+            document.getElementById('agentConfirmationDisplay').style.display = 'block';
+        }
+
+        // Existing scroll animations code
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animations
+        document.querySelectorAll('.feature-card, .step, .referral-card, .business-model-box').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Smooth scroll for the arrow - Remove if no longer needed
+        // document.querySelector('.scroll-indicator').addEventListener('click', () => {
+        //     document.querySelector('.features').scrollIntoView({
+        //         behavior: 'smooth'
+        //     });
+        // });
+
+        // Parallax effect (Note: This targets a pseudo-element which isn't directly animatable this way. 
+        // For a true parallax background, the ::before should be within an element, or use a background-image on the hero itself and adjust background-position.)
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            // Removed direct transform on .hero element as it was interfering with other animations or not producing the intended parallax effect on the ::before pseudo-element.
+            // A more robust parallax for background-image would involve background-position property.
+            // const parallax = document.querySelector('.hero::before'); // Cannot directly target pseudo-elements with JS for style changes
+            // if (parallax) {
+            //     const speed = scrolled * 0.5;
+            //     document.querySelector('.hero').style.transform = `translateY(${speed}px)`; 
+            // }
+        });
+    </script>
+</body>
+</html>
