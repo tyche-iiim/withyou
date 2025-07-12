@@ -933,12 +933,12 @@
                 <div class="step">
                     <div class="step-number">2</div>
                     <h3 class="step-title">Evaluation and Free Course</h3>
-                    <p class="step-description">Our team will evaluate your profile, and you will begin the FREE 80-hour Italian language course</p>
+                    <p class="step-description">Our team will evaluate your profile and begin the FREE 80-hour Italian language course</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
                     <h3 class="step-title">Interviews and Contract</h3>
-                    <p class="step-description">During the course, you will begin online interviews. If selected, you will sign your employment contract</p>
+                    <p class="step-description">During the course, you will start online interviews. If selected, you will sign your employment contract</p>
                 </div>
                 <div class="step">
                     <div class="step-number">4</div>
@@ -1046,25 +1046,25 @@
                 <p>Complete your details, and we'll contact you to explain how you can be part of our agent team and earn for each successful placement.</p>
             </div>
             <div class="modal-form">
-                <form id="referralForm" onsubmit="submitAgentForm(event)">
+                <form id="referralForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdcF6M6WdJt-gGz-E6G5o_M1D7yF0r5ZfS0G6Q_xQ9wBw/formResponse" method="POST" target="hidden_iframe">
                     <div class="form-group">
                         <label for="nombre">First Name *</label>
-                        <input type="text" id="nombre" name="nombre" required placeholder="Your first name">
+                        <input type="text" id="nombre" name="entry.791599371" required placeholder="Your first name">
                     </div>
                     
                     <div class="form-group">
                         <label for="apellido">Last Name *</label>
-                        <input type="text" id="apellido" name="apellido" required placeholder="Your last name">
+                        <input type="text" id="apellido" name="entry.1444141634" required placeholder="Your last name">
                     </div>
                     
                     <div class="form-group">
                         <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required placeholder="your@email.com">
+                        <input type="email" id="email" name="entry.906560935" required placeholder="your@email.com">
                     </div>
                     
                     <div class="form-group">
                         <label for="nacion">Nation *</label>
-                        <select id="nacion" name="nacion" required>
+                        <select id="nacion" name="entry.1691238497" required>
                             <option value="">Select your country</option>
                             <option value="Argentina">Argentina</option>
                             <option value="Bolivia">Bolivia</option>
@@ -1082,17 +1082,20 @@
                     
                     <div class="form-group">
                         <label for="ciudad">City of Residence *</label>
-                        <input type="text" id="ciudad" name="ciudad" required placeholder="Your current city">
+                        <input type="text" id="ciudad" name="entry.604245648" required placeholder="Your current city">
                     </div>
                     
                     <div class="form-group">
                         <label for="documento">ID Document *</label>
-                        <input type="text" id="documento" name="documento" required placeholder="ID or passport number">
+                        <input type="text" id="documento" name="entry.170669273" required placeholder="ID or passport number">
                     </div>
                     
                     <button type="submit" class="submit-btn">Send My Agent Application</button>
                 </form>
                 
+                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
+                        onload="if(submitted) { closeReferralModal(); document.getElementById('referralForm').style.display = 'none'; document.getElementById('agentConfirmationDisplay').style.display = 'block'; submitted=false; }"></iframe>
+
                 <div id="agentConfirmationDisplay" class="referral-code-display" style="display: none;">
                     <h3>Application Received!</h3>
                     <p style="color: white; margin-top: 1rem;">
@@ -1104,6 +1107,9 @@
     </div>
 
     <script>
+        // Global variable to track form submission status
+        let submitted = false;
+
         // Modal functions
         function openReferralModal() {
             document.getElementById('referralModal').style.display = 'block';
@@ -1112,6 +1118,16 @@
             document.getElementById('referralForm').style.display = 'block';
             document.getElementById('agentConfirmationDisplay').style.display = 'none';
             document.getElementById('referralForm').reset();
+            // Also reset the iframe onload state if necessary for multiple submissions
+            const iframe = document.getElementById('hidden_iframe');
+            iframe.onload = function() {
+                if(submitted) { 
+                    closeReferralModal(); 
+                    document.getElementById('referralForm').style.display = 'none'; 
+                    document.getElementById('agentConfirmationDisplay').style.display = 'block'; 
+                    submitted=false; 
+                }
+            };
         }
 
         function closeReferralModal() {
@@ -1127,30 +1143,12 @@
             }
         }
 
-        // Submit Agent Form (replaces generateReferralCode)
+        // Submit Agent Form (now just sets a flag and lets HTML form handle submission)
         function submitAgentForm(event) {
-            event.preventDefault();
-            
-            const nombre = document.getElementById('nombre').value;
-            const apellido = document.getElementById('apellido').value;
-            const email = document.getElementById('email').value;
-            const nacion = document.getElementById('nacion').value;
-            const ciudad = document.getElementById('ciudad').value;
-            const documento = document.getElementById('documento').value;
-            
-            // Here you would typically send the agent application data to your backend
-            console.log('Agent Application Data:', {
-                nombre: nombre,
-                apellido: apellido,
-                email: email,
-                nacion: nacion,
-                ciudad: ciudad,
-                documento: documento
-            });
-
-            // Simulate success and show confirmation message
-            document.getElementById('referralForm').style.display = 'none';
-            document.getElementById('agentConfirmationDisplay').style.display = 'block';
+            // No event.preventDefault() here! We want the form to submit normally to the iframe.
+            submitted = true; // Set the flag to indicate a submission is in progress
+            console.log('Form is being submitted to Google Forms via hidden iframe.');
+            // The rest of the logic (showing confirmation) is handled by the iframe's onload event.
         }
 
         // Existing scroll animations code
@@ -1175,13 +1173,6 @@
             el.style.transition = 'all 0.6s ease';
             observer.observe(el);
         });
-
-        // Smooth scroll for the arrow - Remove if no longer needed
-        // document.querySelector('.scroll-indicator').addEventListener('click', () => {
-        //     document.querySelector('.features').scrollIntoView({
-        //         behavior: 'smooth'
-        //     });
-        // });
 
         // Parallax effect (Note: This targets a pseudo-element which isn't directly animatable this way. 
         // For a true parallax background, the ::before should be within an element, or use a background-image on the hero itself and adjust background-position.)
