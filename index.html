@@ -3,8 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tyche x IIIM - Your Professional Future in Italy</title>
+    <title>With You: Safe. Legal. Human. Rethinking Migration.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-blue: #1e5fa8;
+            --secondary-blue: #2a6bb3;
+            --dark-blue: #164080;
+            --darker-blue: #0d2847;
+            --accent-gold: #ffd700; /* Bright gold */
+            --light-gold: #ffed4e; /* Lighter gold */
+            --warm-orange: #ff9900; /* New warm accent */
+            --deep-orange: #cc7a00; /* Deeper orange for shadows */
+            --white: #ffffff;
+            --light-grey: #f0f8ff;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,44 +28,38 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
-            background: #1e5fa8;
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .text-center {
+            text-align: center;
         }
 
         /* Animations */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
         }
 
         @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
         }
 
         @keyframes pulse {
@@ -63,18 +73,22 @@
             50% { transform: translateY(-10px); }
         }
 
-        /* Header Hero Section */
+        /* Hero Section */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, #1e5fa8 0%, #2a6bb3 50%, #1e5fa8 100%);
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 50%, var(--primary-blue) 100%);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: white;
+            color: var(--white);
             position: relative;
             overflow: hidden;
+            padding: 4rem 0;
+            /* Added depth and warmth */
+            box-shadow: inset 0 -20px 50px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-bottom: 5px solid var(--warm-orange);
         }
 
         .hero::before {
@@ -92,288 +106,393 @@
 
         .hero-content {
             z-index: 2;
-            max-width: 800px;
+            max-width: 900px;
             padding: 2rem;
             animation: fadeInUp 1s ease-out;
+            /* Added depth */
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
         }
 
         .logo-section {
-            margin-bottom: 3rem;
-            animation: slideInLeft 1s ease-out 0.2s both;
-        }
-
-        .horizontal-logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2rem;
             margin-bottom: 2rem;
+            animation: slideInLeft 1s ease-out 0.2s both;
+            display: none; /* Hide the Tyche x IIIM logo section as per new request */
         }
 
-        .tyche-logo {
-            font-size: 3.5rem;
-            font-weight: 300;
-            letter-spacing: 6px;
-            color: white;
-        }
-
-        .divider {
-            font-size: 3rem;
-            color: white;
-            animation: pulse 2s infinite;
-        }
-
-        .iiim-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .iiim-left {
-            font-size: 3.5rem;
-            font-weight: 300;
-            letter-spacing: 6px;
-            margin-bottom: 0.5rem;
-            color: white;
-        }
-
-        .iiim-description {
-            font-size: 1rem;
-            line-height: 1.4;
-            opacity: 0.9;
-            text-align: center;
-        }
-
-        .main-title {
-            font-size: 3rem;
+        .project-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4.5rem; /* Larger font size */
             font-weight: 700;
-            margin: 2rem 0;
-            background: linear-gradient(45deg, #fff, #f0f8ff);
+            margin: 2rem 0 1rem;
+            background: linear-gradient(45deg, var(--white), var(--light-grey));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: fadeInUp 1s ease-out 0.6s both;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Text shadow for depth */
         }
 
-        .subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 3rem;
-            opacity: 0.9;
+        .project-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem; /* Larger font size */
+            font-weight: 600;
+            margin-bottom: 2rem; /* Reduced margin */
+            color: var(--warm-orange); /* Use warm orange for subtitle */
             animation: fadeInUp 1s ease-out 0.8s both;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); /* Text shadow for depth */
         }
 
-        .motto {
-            font-size: 1.1rem;
-            font-style: italic;
-            margin-top: 2rem;
-            opacity: 0.9;
+        .hero p {
+            font-size: 1.2rem; /* Slightly larger font */
+            opacity: 0.95; /* More opaque */
             animation: fadeInUp 1s ease-out 1s both;
+            line-height: 1.8; /* Increased line height for readability */
             max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            border-top: 1px solid rgba(255,255,255,0.3);
-            padding-top: 1rem;
+            margin: 1.5rem auto; /* Adjusted margins */
         }
 
-        /* New Business Model Box */
-        .business-model-box {
-            background: rgba(255, 255, 255, 0.15);
-            border: 2px solid #ffd700;
-            border-radius: 15px;
-            padding: 1.5rem;
-            margin-top: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-            color: white;
-            animation: fadeInUp 1s ease-out 1.2s both;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .business-model-box h3 {
-            font-size: 1.5rem;
-            color: #ffd700;
-            margin-bottom: 1rem;
-        }
-
-        .business-model-box p {
-            font-size: 1rem;
-            line-height: 1.5;
-            opacity: 0.9;
-        }
-
-        /* Features Section */
-        .features {
+        /* Key Message Section */
+        .key-message {
+            background: var(--dark-blue);
             padding: 5rem 2rem;
-            background: linear-gradient(180deg, #1e5fa8 0%, #1a4f91 100%);
+            text-align: center;
             position: relative;
+            z-index: 1;
+            /* Added depth */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            border-bottom: 5px solid var(--deep-orange);
         }
-
-        .features::before {
+        .key-message::before { /* Warm subtle glow effect */
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 100px;
-            background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 40px;
+            background: radial-gradient(ellipse at center, rgba(255,153,0,0.3) 0%, transparent 70%);
+            z-index: -1;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2.5rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            text-align: center;
-            color: white;
-            transition: all 0.3s ease;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            color: #ffd700;
-        }
-
-        .feature-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .feature-description {
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-
-        /* CTA Section */
-        .cta {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, #2a6bb3 0%, #1e5fa8 100%);
-            text-align: center;
-            color: white;
-        }
-
-        .cta-title {
-            font-size: 2.5rem;
+        .key-message h2 {
+            font-size: 3.2rem; /* Larger font size */
             font-weight: 700;
             margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--accent-gold), var(--warm-orange)); /* Gold to orange gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             animation: fadeInUp 1s ease-out;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
-        .cta-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        .key-message p {
+            font-size: 1.4rem; /* Larger font size */
+            max-width: 900px; /* Wider text area */
+            margin: 0 auto 3.5rem; /* Increased margin */
+            line-height: 1.8;
+            opacity: 0.95;
             animation: fadeInUp 1s ease-out 0.2s both;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 1.5rem 3rem;
-            background: linear-gradient(45deg, #ffd700, #ffed4e);
-            color: #1e5fa8;
+            padding: 1.7rem 3.5rem; /* Larger padding */
+            background: linear-gradient(45deg, var(--warm-orange), var(--light-gold)); /* Orange to light gold */
+            color: var(--darker-blue); /* Darker text color */
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.2rem;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
-            animation: fadeInUp 1s ease-out 0.4s both;
+            font-size: 1.3rem; /* Larger font size */
+            border-radius: 60px; /* More rounded */
+            transition: all 0.4s ease; /* Slower transition */
+            box-shadow: 0 15px 40px rgba(255, 153, 0, 0.4); /* Stronger shadow with orange tint */
+            animation: pulse 2s infinite, fadeInUp 1s ease-out 0.4s both; /* Added pulse animation */
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px; /* More letter spacing */
+            border: 2px solid var(--white); /* Added border */
         }
 
         .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
-            background: linear-gradient(45deg, #ffed4e, #ffd700);
+            transform: translateY(-8px) scale(1.02); /* More pronounced lift and slight scale */
+            box-shadow: 0 20px 50px rgba(255, 153, 0, 0.6); /* Even stronger shadow */
+            background: linear-gradient(45deg, var(--light-gold), var(--warm-orange)); /* Reversed gradient on hover */
+            border-color: var(--accent-gold); /* Gold border on hover */
         }
 
-        /* Process Section */
-        .process {
-            padding: 5rem 2rem;
-            background: linear-gradient(180deg, #1a4f91 0%, #164080 100%);
+        /* New sections for additional options */
+        .additional-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2.5rem; /* Space between cards */
+            margin-top: 4rem; /* Spacing from CTA button */
         }
 
-        .process-title {
+        .option-card {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            width: 100%;
+            max-width: 450px; /* Max width for each card */
             text-align: center;
-            font-size: 2.5rem;
+            color: var(--white);
+            transition: all 0.4s ease;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out; /* Fade in animation */
+        }
+
+        .option-card::before { /* Subtle background pattern/effect */
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            background: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.5;
+            z-index: 0;
+            transform: rotate(15deg);
+        }
+
+        .option-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+            border-color: var(--accent-gold); /* Highlight border */
+        }
+
+        .option-card h3 {
+            font-size: 1.8rem;
             font-weight: 700;
-            color: white;
-            margin-bottom: 3rem;
-            animation: fadeInUp 1s ease-out;
+            margin-bottom: 1.5rem;
+            color: var(--accent-gold); /* Gold color for titles */
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
         }
 
-        .process-steps {
+        .option-card p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        .option-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(45deg, var(--accent-gold), var(--warm-orange)); /* Gold to warm orange */
+            color: var(--darker-blue);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(255, 153, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+            border: 1px solid var(--white);
+        }
+
+        .option-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(255, 153, 0, 0.5);
+            background: linear-gradient(45deg, var(--light-gold), var(--accent-gold)); /* Lighter gradient on hover */
+            border-color: var(--accent-gold);
+        }
+
+        /* The "With You" Process Section */
+        .process-section {
+            padding: 6rem 2rem; /* More padding */
+            background: linear-gradient(180deg, var(--dark-blue) 0%, var(--darker-blue) 100%);
+            position: relative;
+            z-index: 1;
+            box-shadow: inset 0 20px 50px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .process-section h2 {
+            font-size: 3.2rem; /* Larger font size */
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 4rem; /* More margin */
+            animation: fadeInUp 1s ease-out;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .process-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Min width slightly larger */
+            gap: 3rem; /* More gap */
         }
 
-        .step {
+        .process-step-card {
+            background: rgba(255, 255, 255, 0.08); /* Slightly less opaque */
+            padding: 3rem; /* More padding */
+            border-radius: 25px; /* More rounded */
+            backdrop-filter: blur(12px); /* Stronger blur */
+            border: 1px solid rgba(255, 255, 255, 0.15);
             text-align: center;
-            color: white;
+            color: var(--white);
+            transition: all 0.4s ease; /* Slower transition */
             animation: fadeInUp 1s ease-out;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+            position: relative; /* For connector lines if needed later */
+            overflow: hidden;
+        }
+
+        .process-step-card::before { /* Inner glow effect */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top left, rgba(255,255,255,0.05) 0%, transparent 60%);
+            z-index: 0;
+        }
+
+        .process-step-card:hover {
+            transform: translateY(-12px) scale(1.02); /* More pronounced lift and slight scale */
+            background: rgba(255, 255, 255, 0.15); /* More opaque on hover */
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35); /* Even stronger shadow */
+            border-color: var(--warm-orange); /* Highlight border on hover */
         }
 
         .step-number {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(45deg, #ffd700, #ffed4e);
-            color: #1e5fa8;
+            font-family: 'Montserrat', sans-serif;
+            width: 80px; /* Larger number bubble */
+            height: 80px;
+            background: linear-gradient(45deg, var(--warm-orange), var(--accent-gold)); /* Warm gradient */
+            color: var(--darker-blue);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 2.5rem; /* Larger number */
             font-weight: 700;
-            margin: 0 auto 1.5rem;
+            margin: 0 auto 1.8rem; /* More margin */
+            box-shadow: 0 8px 20px rgba(255, 153, 0, 0.4); /* Stronger warm shadow */
+            transition: all 0.3s ease;
+        }
+
+        .process-step-card:hover .step-number {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(255, 153, 0, 0.6);
         }
 
         .step-title {
-            font-size: 1.3rem;
+            font-size: 1.6rem; /* Larger font size */
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
+            color: var(--accent-gold); /* Gold color */
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
 
         .step-description {
-            opacity: 0.9;
-            line-height: 1.6;
+            font-size: 1.1rem; /* Slightly larger font */
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 6rem 2rem; /* More padding */
+            background: linear-gradient(135deg, var(--darker-blue) 0%, var(--dark-blue) 100%);
+            position: relative;
+            z-index: 1;
+            box-shadow: inset 0 20px 50px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        .benefits::before { /* Warm subtle glow effect */
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 40px;
+            background: radial-gradient(ellipse at center, rgba(255,153,0,0.3) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .benefits h2 {
+            font-size: 3.2rem; /* Larger font size */
+            font-weight: 700;
+            margin-bottom: 4rem; /* More margin */
+            background: linear-gradient(45deg, var(--white), var(--light-grey));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease-out;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Min width slightly larger */
+            gap: 2.5rem;
+        }
+
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.06); /* Slightly less opaque */
+            padding: 2.5rem; /* More padding */
+            border-radius: 20px; /* More rounded */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease; /* Slower transition */
+            animation: fadeInUp 1s ease-out;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-card::before { /* Inner glow effect */
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at bottom right, rgba(255,255,255,0.05) 0%, transparent 60%);
+            z-index: 0;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px) scale(1.01); /* More pronounced lift and slight scale */
+            background: rgba(255, 255, 255, 0.1); /* More opaque on hover */
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3); /* Even stronger shadow */
+            border-color: var(--warm-orange); /* Highlight border on hover */
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem; /* Slightly larger font */
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .benefit-card p {
+            font-size: 1.05rem; /* Slightly larger font */
+            opacity: 0.95;
+            line-height: 1.7;
         }
 
         /* Footer */
         .footer {
-            background: #0d2847;
-            color: white;
+            background: var(--darker-blue);
+            color: var(--white);
             text-align: center;
             padding: 3rem 2rem;
+            border-top: 5px solid var(--warm-orange); /* Warm border */
+            box-shadow: inset 0 20px 50px rgba(0, 0, 0, 0.3);
         }
 
         .footer-content {
@@ -382,460 +501,271 @@
         }
 
         .footer-title {
-            font-size: 1.5rem;
+            font-size: 1.6rem; /* Slightly larger */
             margin-bottom: 1rem;
-            color: #ffd700;
+            color: var(--accent-gold);
         }
 
         .contact-info {
-            margin: 1rem 0;
-            opacity: 0.8;
+            margin: 1.5rem 0; /* More margin */
+            opacity: 0.9;
         }
 
         .contact-link {
-            color: #ffd700;
+            color: var(--accent-gold);
             text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         .contact-link:hover {
+            color: var(--light-gold);
             text-decoration: underline;
         }
 
-        /* Responsive */
+        .motto-footer {
+            font-size: 1.05rem; /* Slightly larger */
+            font-style: italic;
+            margin-top: 2rem;
+            opacity: 0.9;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            padding-top: 1rem;
+        }
+
+        .powered-by {
+            font-size: 0.85rem; /* Small font size */
+            opacity: 0.7;
+            margin-top: 1rem;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .horizontal-logo {
-                flex-direction: column;
-                gap: 1rem;
+            .hero {
+                min-height: auto;
+                padding: 3rem 0;
             }
-            
-            .tyche-logo {
+            .hero-content {
+                padding: 2rem;
+            }
+            .project-title {
+                font-size: 3rem;
+            }
+            .project-subtitle {
+                font-size: 1.6rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+            .key-message h2, .process-section h2, .benefits h2 {
                 font-size: 2.5rem;
-                letter-spacing: 4px;
             }
-            
-            .iiim-left {
-                font-size: 2.5rem;
-                letter-spacing: 4px;
-            }
-            
-            .iiim-description {
-                font-size: 0.9rem;
-            }
-
-            .main-title {
-                font-size: 2rem;
-                line-height: 1.2;
-            }
-
-            .subtitle {
+            .key-message p {
                 font-size: 1.2rem;
             }
-
-            .motto {
+            .cta-button {
+                padding: 1.2rem 2.5rem;
+                font-size: 1.1rem;
+            }
+            .additional-options {
+                flex-direction: column; /* Stack cards on smaller screens */
+                gap: 2rem;
+            }
+            .option-card {
+                max-width: 90%; /* Adjust width for small screens */
+            }
+            .process-grid, .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            .process-step-card, .benefit-card {
+                padding: 2rem;
+            }
+            .step-number {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+            .step-title, .benefit-card h3 {
+                font-size: 1.4rem;
+            }
+            .step-description, .benefit-card p {
                 font-size: 1rem;
             }
+            .footer-title {
+                font-size: 1.4rem;
+            }
+        }
 
-            .business-model-box {
-                margin-top: 2rem;
+        @media (max-width: 480px) {
+            .hero-content {
                 padding: 1rem;
             }
-            .business-model-box h3 {
-                font-size: 1.2rem;
+            .project-title {
+                font-size: 2.5rem;
             }
-            .business-model-box p {
-                font-size: 0.9rem;
+            .project-subtitle {
+                font-size: 1.3rem;
             }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+            .key-message h2, .process-section h2, .benefits h2 {
+                font-size: 2.2rem;
             }
-
-            .process-steps {
-                grid-template-columns: 1fr;
+            .key-message p {
+                font-size: 1.05rem;
             }
-            
-            .referral-process {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 1rem;
             }
-        }
-
-        @media (max-width: 1024px) and (min-width: 769px) {
-            .process-steps {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
+            .step-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.8rem;
             }
-        }
-
-        /* Referral Section */
-        .referral {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, #164080 0%, #1a4f91 50%, #1e5fa8 100%);
-            color: white;
-            position: relative;
-        }
-
-        .referral::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 100px;
-            background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, transparent 100%);
-        }
-
-        .referral-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 1s ease-out;
-            background: linear-gradient(45deg, #ffd700, #ffed4e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .referral-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            margin-bottom: 4rem;
-            opacity: 0.9;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-
-        .referral-content {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(300px, 1fr)); 
-            gap: 2.5rem;
-            margin-bottom: 4rem;
-            justify-content: center;
-            align-items: start;
-        }
-
-        @media (max-width: 650px) {
-            .referral-content {
-                grid-template-columns: repeat(1, 1fr);
+            .option-card h3 {
+                font-size: 1.5rem;
+            }
+            .option-card p {
+                font-size: 1rem;
+            }
+            .option-button {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
             }
         }
-
-        .referral-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2.5rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            text-align: center;
-            color: white;
-            transition: all 0.3s ease;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .referral-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .referral-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            animation: pulse 2s infinite;
-        }
-
-        .referral-card-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #ffd700;
-        }
-
-        .referral-card-description {
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-
-        .referral-steps {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 3rem;
-            border-radius: 20px;
-            margin-bottom: 3rem;
-            backdrop-filter: blur(5px);
-        }
-
-        .referral-steps-title {
-            text-align: center;
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 2.5rem;
-            color: #ffd700;
-        }
-
-        .referral-process {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-
-        .referral-step {
-            text-align: center;
-        }
-
-        .referral-step-number {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(45deg, #ffd700, #ffed4e);
-            color: #1e5fa8;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin: 0 auto 1rem;
-        }
-
-        .referral-step p {
-            font-size: 0.95rem;
-            line-height: 1.4;
-        }
-
-        .referral-cta {
-            text-align: center;
-        }
-
-        /* Style the link as a button */
-        .referral-button-link { 
-            display: inline-block;
-            padding: 1.5rem 3rem;
-            background: linear-gradient(45deg, #ffd700, #ffed4e);
-            color: #1e5fa8;
-            text-decoration: none; /* Remove link underline */
-            font-weight: 700;
-            font-size: 1.1rem;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
-            animation: fadeInUp 1s ease-out 0.4s both;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
-        }
-
-        .referral-button-link:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
-            background: linear-gradient(45deg, #ffed4e, #ffd700);
-        }
-
-        .referral-note {
-            font-size: 0.9rem;
-            opacity: 0.7;
-            font-style: italic;
-        }
-
-        /* Modal styles removed for direct redirect */
-        .modal { display: none; }
     </style>
 </head>
 <body>
     <section class="hero">
         <div class="hero-content">
-            <div class="logo-section">
-                <div class="horizontal-logo">
-                    <div class="tyche-logo">TYCHE</div>
-                    <div class="divider">✕</div>
-                    <div class="iiim-section">
-                        <div class="iiim-left">IIIM</div>
-                        <div class="iiim-description">
-                            (International Institute of Languages for Migrants)
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <h1 class="main-title">Your Professional Future in Italy</h1>
-            <p class="subtitle">Connecting South American talent with job opportunities in Italy</p>
-            <p class="motto">
-                For the worker, the process with Tyche will be free because migrating already costs the heart.
-                Against human trafficking, we reverse the concept of migration!
-            </p>
-
-            <div class="business-model-box">
-                <h3>A New Business Model for New Markets</h3>
-                <p>Our vision is to transcend traditional barriers, creating a safe and ethical bridge for labor migration. This approach not only benefits workers but also opens vast opportunities in emerging markets and optimizes the global talent supply.</p>
-            </div>
-        </div>
-        
-        <div class="scroll-indicator">
-            <div class="scroll-arrow">↓</div>
+            <h1 class="project-title">With You</h1>
+            <p class="project-subtitle">Safe. Legal. Human. Rethinking Migration.</p>
+            <p>Our mission is to offer a complete, safe, and ethical path for <u>workers</u> from all over the world to find meaningful employment and a new home in Italy. <u>The entire process, from the Italian course to job placement, is completely free.</u> We fight against human trafficking.</p>
+            <p>We believe in a future where migration is a journey of empowerment, not uncertainty. Your well-being is at the heart of everything we do.</p>
         </div>
     </section>
 
-    <section class="features">
+    <section class="key-message">
         <div class="container">
-            <h2 class="cta-title" style="text-align: center; color: white;">Why Choose Italy?</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🏢</div>
-                    <h3 class="feature-title">Job Opportunities</h3>
-                    <p class="feature-description">Thousands of job vacancies available in sectors such as construction, hospitality, agriculture, and services</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💰</div>
-                    <h3 class="feature-title">Competitive Salaries</h3>
-                    <p class="feature-description">Fair wages and social benefits that will allow you to prosper and help your family</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎓</div>
-                    <h3 class="feature-title">FREE Comprehensive Training</h3>
-                    <p class="feature-description">A completely free 80-hour Italian language course, job training, and guidance for successful integration</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🤝</div>
-                    <h3 class="feature-title">Full Support</h3>
-                    <p class="feature-description">We support you from day one: documentation, accommodation, and job placement</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🌍</div>
-                    <h3 class="feature-title">Quality of Life</h3>
-                    <p class="feature-description">Live in a country with rich culture, excellent gastronomy, and a quality healthcare system</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📋</div>
-                    <h3 class="feature-title">Legal Process</h3>
-                    <p class="feature-description">Complete management of work and residence permits in a fully legal manner</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="process">
-        <div class="container">
-            <h2 class="process-title">How It Works</h2>
-            <div class="process-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3 class="step-title">Register</h3>
-                    <p class="step-description">Complete our form with your personal details and work experience</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3 class="step-title">Evaluation & Free Course</h3>
-                    <p class="step-description">Our team will evaluate your profile and start the FREE 80-hour Italian language course</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3 class="step-title">Interviews & Contract</h3>
-                    <p class="step-description">During the course, you will begin online interviews. If selected, you will sign your employment contract</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3 class="step-title">Travel & Residence Permit</h3>
-                    <p class="step-description">With your contract in hand, we help you manage your work and residence permit at the embassy for your trip to Italy</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="referral">
-        <div class="container">
-            <h2 class="referral-title">Become a Migration Agent!</h2>
-            <p class="referral-subtitle">Do you know someone who wants to work in Italy? Help them fulfill their dream and earn for each successful placement!</p>
-            
-            <div class="referral-content">
-                <div class="referral-card">
-                    <div class="referral-icon">💼</div>
-                    <h3 class="referral-card-title">Earn per Placement</h3>
-                    <p class="referral-card-description">As an agent, you will receive a commission for each person who successfully joins our program through your management</p>
-                </div>
-                
-                <div class="referral-card">
-                    <div class="referral-icon">🤝</div>
-                    <h3 class="referral-card-title">Social Impact</h3>
-                    <p class="referral-card-description">Help others find new opportunities and build a better future in Italy</p>
-                </div>
-                
-                <div class="referral-card">
-                    <div class="referral-icon">📈</div>
-                    <h3 class="referral-card-title">Flexibility</h3>
-                    <p class="referral-card-description">Work at your own pace, expanding your network and generating income</p>
-                </div>
-
-                <div class="referral-card">
-                    <div class="referral-icon">🌐</div>
-                    <h3 class="referral-card-title">International Network</h3>
-                    <p class="referral-card-description">You will expand your professional and personal network, connecting people and cultures globally.</p>
-                </div>
-            </div>
-            
-            <div class="referral-steps">
-                <h3 class="referral-steps-title">How Does the Agent Program Work?</h3>
-                <div class="referral-process">
-                    <div class="referral-step">
-                        <div class="referral-step-number">1</div>
-                        <p>Contact us to be an agent</p>
-                    </div>
-                    <div class="referral-step">
-                        <div class="referral-step-number">2</div>
-                        <p>Receive your support materials</p>
-                    </div>
-                    <div class="referral-step">
-                        <div class="referral-step-number">3</div>
-                        <p>Guide new talents</p>
-                    </div>
-                    <div class="referral-step">
-                        <div class="referral-step-number">4</div>
-                        <p>Earn for each placement!</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="referral-cta">
-                <a href="https://forms.gle/zfwD56SVvpEDKkQJA" target="_blank" class="referral-button-link" rel="noopener noreferrer">
-                    I Want to Be a Migration Agent
-                </a>
-                <p class="referral-note">* Commissions will be discussed and formalized once you join the agent program.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta">
-        <div class="container">
-            <h2 class="cta-title">Start Your New Life Today!</h2>
-            <p class="cta-subtitle">Don't miss this unique opportunity to change your future. Thousands of South Americans are already successfully working in Italy.</p>
+            <h2>Our Vision: Migration Reimagined</h2>
+            <p>The "With You" project completely rethinks the migratory process. We empower workers by providing them with the tools and support they need <u>before</u> they even leave their home country.</p>
             <a href="https://forms.gle/v3JiFK9ZUdDPbFGa8" target="_blank" class="cta-button" rel="noopener noreferrer">
-                Enroll Now
+                Apply Now to Work in Italy!
             </a>
+
+            <div class="additional-options">
+                <div class="option-card animation-element">
+                    <h3>For Migratory Agents</h3>
+                    <p>Are you a migratory agent or an organization with a vision for ethical migration? Join our global network and help us redefine the future of safe migration. If you are not yet an ethical migratory agent, we offer you the <u>opportunity to train</u> to become one.</p>
+                    <a href="https://docs.google.com/forms/d/1_hxJzA6YJd8lsXXufJnDxTBLg3QjNp8CexH9LfJQEEM/edit" target="_blank" class="option-button" rel="noopener noreferrer">
+                        Partner With Us
+                    </a>
+                </div>
+
+                <div class="option-card animation-element">
+                    <h3>Free Italian Course Registration</h3>
+                    <p>Ready to master Italian and prepare for your future in Italy? Register for our <u>completely free</u> Italian courses and start your language journey today.</p>
+                    <a href="https://forms.gle/v3JiFK9ZUdDPbFGa8" target="_blank" class="option-button" rel="noopener noreferrer">
+                        Enroll Here
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
+
+    ---
+
+    <section class="process-section text-center">
+        <div class="container">
+            <h2>The "With You" Journey: Your Step-by-Step Path to Italy</h2>
+            <div class="process-grid">
+                <div class="process-step-card">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Language Learning and CV Submission</h3>
+                    <p class="step-description">Start your <u>free</u> Italian course. Upon registration, you'll have the opportunity to upload your resume to begin the job search process.</p>
+                </div>
+                <div class="process-step-card">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Company Search and Qualification Equivalence</h3>
+                    <p class="step-description">While you study, we begin searching for Italian and European companies interested in your professional profile. Simultaneously, we'll start the apostille and sworn translation process for your academic qualifications.</p>
+                </div>
+                <div class="process-step-card">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">First Online Interview (Native Language)</h3>
+                    <p class="step-description">Conduct your first online job interview with potential employers in your native language, ensuring clear communication and your total comfort.</p>
+                </div>
+                <div class="process-step-card">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Second Interview (Italian)</h3>
+                    <p class="step-description">Upon completion of your Italian course, you'll have a second interview with the interested company, demonstrating your progress and linguistic preparation.</p>
+                </div>
+                <div class="process-step-card">
+                    <div class="step-number">5</div>
+                    <h3 class="step-title">Contract and Work Permit</h3>
+                    <p class="step-description">If the company is satisfied, they will send you the contract to sign and apply for your work permit on the Italian immigration portal for submission to the Italian Embassy in your country.</p>
+                </div>
+                <div class="process-step-card">
+                    <div class="step-number">6</div>
+                    <h3 class="step-title">Arrival in Italy and Immediate Start</h3>
+                    <p class="step-description">Pick up your work permit at the embassy. The company will send you the flight ticket and provide you with the address of your accommodation in Italy. You will arrive and start working the next day.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    ---
+
+    <section class="benefits text-center">
+        <div class="container">
+            <h2>Ethical Features of "With You"</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>Absolute Security</h3>
+                    <p>Eliminate the risks of exploitation and uncertainty. Every step of your journey is legally backed, fully supported, and designed for your protection.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Financial Security</h3>
+                    <p>Start earning money <u>IMMEDIATELY</u> upon arrival. No wasted time, no financial pressure from job searching. Your future is secure from the start.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Cultural Integration</h3>
+                    <p>Our language and culture courses prepare you not just for a job, but for a new life. Feel at home faster and integrate seamlessly.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Professional Growth</h3>
+                    <p>Gain valuable international experience and build a solid, sustainable career foundation in Europe. Unlock your full potential.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>FAMILY SUPPORT</h3>
+                    <p>With employment and accommodation guaranteed, family reunification is a clear and achievable goal.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Ethical Migration</h3>
+                    <p>Join a movement that prioritizes human dignity, transparency, and sustainable migratory practices. Be part of a better way.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    ---
 
     <footer class="footer">
         <div class="footer-content">
-            <h3 class="footer-title">TYCHE x IIIM</h3>
-            <p>Your bridge to new job opportunities in Italy</p>
+            <h3 class="footer-title">With You</h3>
+            <p>Your secure bridge to new work opportunities in Italy.</p>
             <div class="contact-info">
-                <p>✉️ Email: <a href="mailto:ilim_project@tycheilma.com" class="contact-link">ilim_project@tycheilma.com</a></p>
-                <p>📞 WhatsApp: <a href="https://wa.me/393462267861" class="contact-link">+39 346 226 7861</a></p>
+                <p>✉️ Email: <a href="mailto:info@tycheilma.com" class="contact-link">info@tycheilma.com</a></p>
+                <p>📞 WhatsApp: <a href="https://wa.me/393462267861" class="contact-link" target="_blank">+39 346 226 7861</a></p>
                 <p>📱 Instagram: <a href="https://instagram.com/tyche_ilma" class="contact-link" target="_blank">@tyche_ilma</a> | <a href="https://instagram.com/ilim_project" class="contact-link" target="_blank">@ilim_project</a></p>
             </div>
-            <p class="motto" style="margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 1rem;">
+            <p class="motto-footer">
                 For the worker, the process with Tyche will be free because migrating already costs the heart.
-                Against human trafficking, we reverse the concept of migration!
+                Against human trafficking, we invert the concept of migration!
             </p>
-            <p style="margin-top: 1rem; opacity: 0.6;">© 2025 TYCHE x IIIM. All rights reserved.</p>
+            <p class="powered-by">Powered by Tyche</p>
+            <p style="margin-top: 0.5rem; opacity: 0.6;">© 2025 With You. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // JavaScript functions and variables related to the modal have been removed
-        // as they are no longer needed for direct redirection.
-
-        // Existing scroll animation code (maintained)
+        // Intersection Observer for scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -846,21 +776,24 @@
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
+                    entry.target.style.animationPlayState = 'running';
                 }
             });
         }, observerOptions);
 
-        // Observe all elements with animations
-        document.querySelectorAll('.feature-card, .step, .referral-card, .business-model-box').forEach(el => {
+        document.querySelectorAll('.process-step-card, .benefit-card, .key-message h2, .key-message p, .cta-button, .process-section h2, .benefits h2, .option-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.6s ease';
+            el.style.animationFillMode = 'backwards';
             observer.observe(el);
         });
 
-        // Parallax effect (maintained, though visual impact on ::before is limited this way)
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
+        document.querySelector('.hero-content').style.animation = 'fadeInUp 1s ease-out forwards';
+        document.querySelector('.project-title').style.animation = 'fadeInUp 1s ease-out 0.6s both';
+        document.querySelector('.project-subtitle').style.animation = 'fadeInUp 1s ease-out 0.8s both';
+        document.querySelectorAll('.hero p').forEach((p, index) => {
+            p.style.animation = `fadeInUp 1s ease-out ${1 + index * 0.2}s both`;
         });
     </script>
 </body>
