@@ -6,16 +6,22 @@
     <title>With You: Safe. Legal. Human. Rethinking Migration.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Color variables updated for lighter cinematic blues */
         :root {
-            --primary-blue: #1e5fa8;
-            --secondary-blue: #2a6bb3;
-            --dark-blue: #164080;
-            --darker-blue: #0d2847;
+            --darker-blue: #0d2847; /* Very dark blue, almost black (for footer and deep shadows) */
+            --primary-blue: #1e5fa8; /* Primary blue (lighter) */
+            --secondary-blue: #2a6bb3; /* Secondary blue (lighter) */
+            --section-bg-dark: rgba(22, 64, 128, 0.75); /* Dark blue for sections with slightly reduced transparency */
+            --card-bg-transparent: rgba(30, 95, 168, 0.15); /* Primary blue transparent for cards (more transparent) */
+
+            --primary-blue-transparent-light: rgba(30, 95, 168, 0.15); /* Transparent blue for subtle glows */
+            --flare-gold-transparent: rgba(255, 215, 0, 0.4); /* Transparent gold for lens flare */
+            
             --accent-gold: #ffd700; /* Bright gold */
             --light-gold: #ffed4e; /* Lighter gold */
-            --warm-orange: #ff9900; /* New warm accent */
+            --warm-orange: #ff9900; /* Warm orange */
             --deep-orange: #cc7a00; /* Deeper orange for shadows */
             --white: #ffffff;
             --light-grey: #f0f8ff;
@@ -30,9 +36,14 @@
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
-            overflow-x: hidden;
-            background: var(--primary-blue);
+            overflow-x: hidden; /* Prevents horizontal scroll */
             color: var(--white);
+            /* Global cinematic background with image and overlay - NEW IMAGE FOR HAPPY MIGRATION */
+            background: 
+                linear-gradient(rgba(13, 40, 71, 0.8), rgba(0, 0, 0, 0.9)), /* Dark overlay for readability */
+                url('https://images.unsplash.com/photo-1596541223130-58d394b9850e?q=80&w=2070&auto=format&fit=crop') no-repeat center center; /* Image of happy migration */
+            background-size: cover;
+            background-attachment: fixed; /* Parallax effect for background */
         }
 
         /* Utility Classes */
@@ -40,43 +51,56 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
+            position: relative; /* For z-index */
+            z-index: 2; /* Ensures content is above background effects */
         }
 
         .text-center {
             text-align: center;
         }
 
-        /* Animations */
+        /* Animations copied/adapted from reference code */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(50px); filter: blur(10px); }
+            to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+
+        @keyframes slowZoomIn {
+            from { transform: scale(0.8); }
+            to { transform: scale(1); }
+        }
+
+        @keyframes revealTitle {
+            0% { opacity: 0; filter: blur(10px); letter-spacing: -10px; }
+            70% { opacity: 0.8; filter: blur(1px); letter-spacing: 5px; }
+            100% { opacity: 1; filter: blur(0); letter-spacing: 5px; }
+        }
+        
+        @keyframes revealSubtitle {
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
+        @keyframes lensFlare {
+            0% { left: -150%; }
+            50% { left: 150%; }
+            100% { left: 150%; }
         }
 
-        @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(50px); }
-            to { opacity: 1; transform: translateX(0); }
+        @keyframes rotateLight {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        @keyframes pulseGlow { /* Pulsation for buttons */
+            0% { box-shadow: 0 0 15px rgba(255, 153, 0, 0.5); }
+            50% { box-shadow: 0 0 30px rgba(255, 153, 0, 0.8), 0 0 40px rgba(30, 95, 168, 0.4); }
+            100% { box-shadow: 0 0 15px rgba(255, 153, 0, 0.5); }
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* Hero Section */
+        /* Hero Section - Adapted to use cinematic logo style */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 50%, var(--primary-blue) 100%);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -86,84 +110,114 @@
             position: relative;
             overflow: hidden;
             padding: 4rem 0;
-            /* Added depth and warmth */
-            box-shadow: inset 0 -20px 50px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.2);
-            border-bottom: 5px solid var(--warm-orange);
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: float 6s ease-in-out infinite;
             z-index: 1;
         }
 
+        /* Hero content is now the logo-container */
         .hero-content {
-            z-index: 2;
-            max-width: 900px;
-            padding: 2rem;
-            animation: fadeInUp 1s ease-out;
-            /* Added depth */
-            background: rgba(0, 0, 0, 0.2);
+            position: relative;
+            text-align: center;
+            transform: scale(0.8); /* Initial for slowZoomIn */
+            animation: slowZoomIn 10s ease-out 1s forwards;
+            z-index: 2; /* Ensures it's above background-light */
+            padding: 3rem; /* Added padding for textual content */
+            background: var(--card-bg-transparent); /* Transparent background for the block */
             border-radius: 20px;
-            padding: 3rem;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(8px);
         }
 
-        .logo-section {
-            margin-bottom: 2rem;
-            animation: slideInLeft 1s ease-out 0.2s both;
-            display: none; /* Hide the Tyche x IIIM logo section as per new request */
+        /* Light effect moving in the Hero background */
+        .hero-content .background-light {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 150vw; /* Larger to cover well */
+            height: 150vh;
+            background: radial-gradient(ellipse at center, var(--primary-blue-transparent-light) 0%, transparent 60%);
+            transform: translate(-50%, -50%);
+            animation: rotateLight 25s linear infinite;
+            z-index: -1; /* Behind content */
         }
 
-        .project-title {
+        /* Main title "With You" with cinematic style - EXACTLY COPIED */
+        .project-title { /* Keeps original name for consistency with rest of site */
             font-family: 'Montserrat', sans-serif;
-            font-size: 4.5rem; /* Larger font size */
-            font-weight: 700;
-            margin: 2rem 0 1rem;
-            background: linear-gradient(45deg, var(--white), var(--light-grey));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: fadeInUp 1s ease-out 0.6s both;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Text shadow for depth */
+            font-size: 10vw; /* Responsive size */
+            font-weight: 900;
+            color: var(--white);
+            letter-spacing: 5px;
+            position: relative;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: revealTitle 4s ease-out 1s forwards; /* Reveal animation */
+            text-shadow: 
+                0 0 10px rgba(255, 255, 255, 0.3),
+                0 0 25px rgba(30, 95, 168, 0.4),
+                0 0 50px rgba(30, 95, 168, 0.3);
         }
 
-        .project-subtitle {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.2rem; /* Larger font size */
+        /* "Lens Flare" effect crossing the title */
+        .project-title::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--flare-gold-transparent), transparent);
+            transform: skewX(-25deg);
+            animation: lensFlare 6s ease-in-out 3s infinite;
+        }
+
+        /* Subtitle container with animated words - EXACTLY COPIED */
+        .project-subtitle-container { 
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            font-size: 2vw; /* Responsive size */
             font-weight: 600;
-            margin-bottom: 2rem; /* Reduced margin */
-            color: var(--warm-orange); /* Use warm orange for subtitle */
-            animation: fadeInUp 1s ease-out 0.8s both;
-            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); /* Text shadow for depth */
+            color: var(--warm-orange);
+            text-shadow: 0 0 15px rgba(255, 153, 0, 0.5);
+        }
+        
+        .project-subtitle-word { 
+            opacity: 0;
+            transform: translateY(20px);
+            animation: revealSubtitle 2s ease-out forwards;
         }
 
+        .project-subtitle-word:nth-child(1) { animation-delay: 3s; }
+        .project-subtitle-word:nth-child(2) { animation-delay: 3.5s; }
+        .project-subtitle-word:nth-child(3) { animation-delay: 4s; }
+
+        /* Paragraphs in Hero Section - ORIGINAL TEXT RESTORED */
         .hero p {
-            font-size: 1.2rem; /* Slightly larger font */
-            opacity: 0.95; /* More opaque */
-            animation: fadeInUp 1s ease-out 1s both;
-            line-height: 1.8; /* Increased line height for readability */
+            font-size: 1.2rem;
+            opacity: 0; /* Initially hidden for animation */
+            animation: fadeInUp 1s ease-out forwards;
+            line-height: 1.8;
             max-width: 700px;
-            margin: 1.5rem auto; /* Adjusted margins */
+            margin: 1.5rem auto;
         }
+        .hero p:nth-of-type(1) { animation-delay: 4.5s; } /* Delay for subtitle words */
+        .hero p:nth-of-type(2) { animation-delay: 5s; }
 
-        /* Key Message Section */
+
+        /* Key Message Section - WITH BACKGROUND IMAGE */
         .key-message {
-            background: var(--dark-blue);
+            background: 
+                linear-gradient(rgba(22, 64, 128, 0.75), rgba(22, 64, 128, 0.85)), /* Dark overlay */
+                url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop') no-repeat center center; /* Image of collaboration/vision */
+            background-size: cover;
+            background-attachment: fixed; /* Parallax */
             padding: 5rem 2rem;
             text-align: center;
             position: relative;
             z-index: 1;
-            /* Added depth */
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-            border-bottom: 5px solid var(--deep-orange);
+            border-bottom: 5px solid var(--warm-orange);
         }
         .key-message::before { /* Warm subtle glow effect */
             content: '';
@@ -178,10 +232,11 @@
         }
 
         .key-message h2 {
-            font-size: 3.2rem; /* Larger font size */
+            font-family: 'Montserrat', sans-serif; /* Title font */
+            font-size: 3.2rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
-            background: linear-gradient(45deg, var(--accent-gold), var(--warm-orange)); /* Gold to orange gradient */
+            background: linear-gradient(45deg, var(--accent-gold), var(--warm-orange));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: fadeInUp 1s ease-out;
@@ -189,9 +244,9 @@
         }
 
         .key-message p {
-            font-size: 1.4rem; /* Larger font size */
-            max-width: 900px; /* Wider text area */
-            margin: 0 auto 3.5rem; /* Increased margin */
+            font-size: 1.4rem;
+            max-width: 900px;
+            margin: 0 auto 3.5rem;
             line-height: 1.8;
             opacity: 0.95;
             animation: fadeInUp 1s ease-out 0.2s both;
@@ -199,26 +254,26 @@
 
         .cta-button {
             display: inline-block;
-            padding: 1.7rem 3.5rem; /* Larger padding */
-            background: linear-gradient(45deg, var(--warm-orange), var(--light-gold)); /* Orange to light gold */
-            color: var(--darker-blue); /* Darker text color */
+            padding: 1.7rem 3.5rem;
+            background: linear-gradient(45deg, var(--warm-orange), var(--light-gold));
+            color: var(--darker-blue);
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.3rem; /* Larger font size */
-            border-radius: 60px; /* More rounded */
-            transition: all 0.4s ease; /* Slower transition */
-            box-shadow: 0 15px 40px rgba(255, 153, 0, 0.4); /* Stronger shadow with orange tint */
-            animation: pulse 2s infinite, fadeInUp 1s ease-out 0.4s both; /* Added pulse animation */
+            font-size: 1.3rem;
+            border-radius: 60px;
+            transition: all 0.4s ease;
+            box-shadow: 0 15px 40px rgba(255, 153, 0, 0.4);
+            animation: pulseGlow 2s infinite, fadeInUp 1s ease-out 0.4s both; /* Added pulseGlow */
             text-transform: uppercase;
-            letter-spacing: 2px; /* More letter spacing */
-            border: 2px solid var(--white); /* Added border */
+            letter-spacing: 2px;
+            border: 2px solid var(--white);
         }
 
         .cta-button:hover {
-            transform: translateY(-8px) scale(1.02); /* More pronounced lift and slight scale */
-            box-shadow: 0 20px 50px rgba(255, 153, 0, 0.6); /* Even stronger shadow */
-            background: linear-gradient(45deg, var(--light-gold), var(--warm-orange)); /* Reversed gradient on hover */
-            border-color: var(--accent-gold); /* Gold border on hover */
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(255, 153, 0, 0.6);
+            background: linear-gradient(45deg, var(--light-gold), var(--warm-orange));
+            border-color: var(--accent-gold);
         }
 
         /* New sections for additional options */
@@ -226,27 +281,28 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 2.5rem; /* Space between cards */
-            margin-top: 4rem; /* Spacing from CTA button */
+            gap: 2.5rem;
+            margin-top: 4rem;
         }
 
         .option-card {
-            background: rgba(255, 255, 255, 0.08);
+            background: var(--card-bg-transparent); /* Darker transparent background */
             padding: 2.5rem;
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.15);
             width: 100%;
-            max-width: 450px; /* Max width for each card */
+            max-width: 450px;
             text-align: center;
             color: var(--white);
             transition: all 0.4s ease;
             box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
-            animation: fadeInUp 1s ease-out; /* Fade in animation */
+            animation: fadeInUp 1s ease-out;
+            backdrop-filter: blur(8px);
         }
 
-        .option-card::before { /* Subtle background pattern/effect */
+        .option-card::before {
             content: '';
             position: absolute;
             top: -20%;
@@ -264,14 +320,15 @@
             transform: translateY(-10px) scale(1.02);
             background: rgba(255, 255, 255, 0.15);
             box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
-            border-color: var(--accent-gold); /* Highlight border */
+            border-color: var(--accent-gold);
         }
 
         .option-card h3 {
+            font-family: 'Montserrat', sans-serif; /* Title font */
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
-            color: var(--accent-gold); /* Gold color for titles */
+            color: var(--accent-gold);
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
             position: relative;
             z-index: 1;
@@ -289,7 +346,7 @@
         .option-button {
             display: inline-block;
             padding: 1rem 2.5rem;
-            background: linear-gradient(45deg, var(--accent-gold), var(--warm-orange)); /* Gold to warm orange */
+            background: linear-gradient(45deg, var(--accent-gold), var(--warm-orange));
             color: var(--darker-blue);
             text-decoration: none;
             font-weight: 700;
@@ -307,46 +364,51 @@
         .option-button:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 25px rgba(255, 153, 0, 0.5);
-            background: linear-gradient(45deg, var(--light-gold), var(--accent-gold)); /* Lighter gradient on hover */
+            background: linear-gradient(45deg, var(--light-gold), var(--accent-gold));
             border-color: var(--accent-gold);
         }
 
-        /* The "With You" Process Section */
+        /* The "With You" Process Section - WITH BACKGROUND IMAGE */
         .process-section {
-            padding: 6rem 2rem; /* More padding */
-            background: linear-gradient(180deg, var(--dark-blue) 0%, var(--darker-blue) 100%);
+            background: 
+                linear-gradient(rgba(22, 64, 128, 0.75), rgba(22, 64, 128, 0.85)), /* Dark overlay */
+                url('https://images.unsplash.com/photo-1506748687229-7d722d612674?q=80&w=2070&auto=format&fit=crop') no-repeat center center; /* Image of path/journey */
+            background-size: cover;
+            background-attachment: fixed; /* Parallax */
+            padding: 6rem 2rem;
             position: relative;
             z-index: 1;
             box-shadow: inset 0 20px 50px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .process-section h2 {
-            font-size: 3.2rem; /* Larger font size */
+            font-family: 'Montserrat', sans-serif; /* Title font */
+            font-size: 3.2rem;
             font-weight: 700;
             color: var(--white);
-            margin-bottom: 4rem; /* More margin */
+            margin-bottom: 4rem;
             animation: fadeInUp 1s ease-out;
             text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
         .process-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Min width slightly larger */
-            gap: 3rem; /* More gap */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
         }
 
         .process-step-card {
-            background: rgba(255, 255, 255, 0.08); /* Slightly less opaque */
-            padding: 3rem; /* More padding */
-            border-radius: 25px; /* More rounded */
-            backdrop-filter: blur(12px); /* Stronger blur */
+            background: var(--card-bg-transparent); /* Darker transparent background */
+            padding: 3rem;
+            border-radius: 25px;
+            backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             text-align: center;
             color: var(--white);
-            transition: all 0.4s ease; /* Slower transition */
+            transition: all 0.4s ease;
             animation: fadeInUp 1s ease-out;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2); /* Deeper shadow */
-            position: relative; /* For connector lines if needed later */
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+            position: relative;
             overflow: hidden;
         }
 
@@ -362,26 +424,26 @@
         }
 
         .process-step-card:hover {
-            transform: translateY(-12px) scale(1.02); /* More pronounced lift and slight scale */
-            background: rgba(255, 255, 255, 0.15); /* More opaque on hover */
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35); /* Even stronger shadow */
-            border-color: var(--warm-orange); /* Highlight border on hover */
+            transform: translateY(-12px) scale(1.02);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+            border-color: var(--warm-orange);
         }
 
         .step-number {
             font-family: 'Montserrat', sans-serif;
-            width: 80px; /* Larger number bubble */
+            width: 80px;
             height: 80px;
-            background: linear-gradient(45deg, var(--warm-orange), var(--accent-gold)); /* Warm gradient */
+            background: linear-gradient(45deg, var(--warm-orange), var(--accent-gold));
             color: var(--darker-blue);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem; /* Larger number */
+            font-size: 2.5rem;
             font-weight: 700;
-            margin: 0 auto 1.8rem; /* More margin */
-            box-shadow: 0 8px 20px rgba(255, 153, 0, 0.4); /* Stronger warm shadow */
+            margin: 0 auto 1.8rem;
+            box-shadow: 0 8px 20px rgba(255, 153, 0, 0.4);
             transition: all 0.3s ease;
         }
 
@@ -391,23 +453,28 @@
         }
 
         .step-title {
-            font-size: 1.6rem; /* Larger font size */
+            font-family: 'Montserrat', sans-serif; /* Title font */
+            font-size: 1.6rem;
             font-weight: 600;
             margin-bottom: 1.2rem;
-            color: var(--accent-gold); /* Gold color */
+            color: var(--accent-gold);
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
 
         .step-description {
-            font-size: 1.1rem; /* Slightly larger font */
+            font-size: 1.1rem;
             opacity: 0.95;
             line-height: 1.7;
         }
 
-        /* Benefits Section */
+        /* Benefits Section - WITH BACKGROUND IMAGE */
         .benefits {
-            padding: 6rem 2rem; /* More padding */
-            background: linear-gradient(135deg, var(--darker-blue) 0%, var(--dark-blue) 100%);
+            background: 
+                linear-gradient(rgba(22, 64, 128, 0.75), rgba(22, 64, 128, 0.85)), /* Dark overlay */
+                url('https://images.unsplash.com/photo-1521737711867-ee1d21650ed6?q=80&w=2070&auto=format&fit=crop') no-repeat center center; /* Image of hands/community */
+            background-size: cover;
+            background-attachment: fixed; /* Parallax */
+            padding: 6rem 2rem;
             position: relative;
             z-index: 1;
             box-shadow: inset 0 20px 50px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -425,9 +492,10 @@
         }
 
         .benefits h2 {
-            font-size: 3.2rem; /* Larger font size */
+            font-family: 'Montserrat', sans-serif; /* Title font */
+            font-size: 3.2rem;
             font-weight: 700;
-            margin-bottom: 4rem; /* More margin */
+            margin-bottom: 4rem;
             background: linear-gradient(45deg, var(--white), var(--light-grey));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -437,20 +505,21 @@
 
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Min width slightly larger */
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2.5rem;
         }
 
         .benefit-card {
-            background: rgba(255, 255, 255, 0.06); /* Slightly less opaque */
-            padding: 2.5rem; /* More padding */
-            border-radius: 20px; /* More rounded */
+            background: var(--card-bg-transparent); /* Darker transparent background */
+            padding: 2.5rem;
+            border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s ease; /* Slower transition */
-            animation: fadeInUp 1s ease-out;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+            transition: all 0.4s ease;
+            animation: fadeInUp 1.5s ease-out; /* Slightly slower animation */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(8px);
         }
 
         .benefit-card::before { /* Inner glow effect */
@@ -465,14 +534,15 @@
         }
 
         .benefit-card:hover {
-            transform: translateY(-10px) scale(1.01); /* More pronounced lift and slight scale */
-            background: rgba(255, 255, 255, 0.1); /* More opaque on hover */
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3); /* Even stronger shadow */
-            border-color: var(--warm-orange); /* Highlight border on hover */
+            transform: translateY(-10px) scale(1.01);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+            border-color: var(--warm-orange);
         }
 
         .benefit-card h3 {
-            font-size: 1.5rem; /* Slightly larger font */
+            font-family: 'Montserrat', sans-serif; /* Title font */
+            font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 1rem;
             color: var(--accent-gold);
@@ -480,7 +550,7 @@
         }
 
         .benefit-card p {
-            font-size: 1.05rem; /* Slightly larger font */
+            font-size: 1.05rem;
             opacity: 0.95;
             line-height: 1.7;
         }
@@ -491,7 +561,7 @@
             color: var(--white);
             text-align: center;
             padding: 3rem 2rem;
-            border-top: 5px solid var(--warm-orange); /* Warm border */
+            border-top: 5px solid var(--warm-orange);
             box-shadow: inset 0 20px 50px rgba(0, 0, 0, 0.3);
         }
 
@@ -501,13 +571,14 @@
         }
 
         .footer-title {
-            font-size: 1.6rem; /* Slightly larger */
+            font-family: 'Montserrat', sans-serif; /* Title font */
+            font-size: 1.6rem;
             margin-bottom: 1rem;
             color: var(--accent-gold);
         }
 
         .contact-info {
-            margin: 1.5rem 0; /* More margin */
+            margin: 1.5rem 0;
             opacity: 0.9;
         }
 
@@ -523,7 +594,7 @@
         }
 
         .motto-footer {
-            font-size: 1.05rem; /* Slightly larger */
+            font-size: 1.05rem;
             font-style: italic;
             margin-top: 2rem;
             opacity: 0.9;
@@ -532,7 +603,7 @@
         }
 
         .powered-by {
-            font-size: 0.85rem; /* Small font size */
+            font-size: 0.85rem;
             opacity: 0.7;
             margin-top: 1rem;
         }
@@ -547,10 +618,11 @@
                 padding: 2rem;
             }
             .project-title {
-                font-size: 3rem;
+                font-size: 15vw; /* Larger on mobile */
             }
-            .project-subtitle {
-                font-size: 1.6rem;
+            .project-subtitle-container {
+                font-size: 3.5vw;
+                gap: 1.5rem;
             }
             .hero p {
                 font-size: 1.1rem;
@@ -566,11 +638,11 @@
                 font-size: 1.1rem;
             }
             .additional-options {
-                flex-direction: column; /* Stack cards on smaller screens */
+                flex-direction: column;
                 gap: 2rem;
             }
             .option-card {
-                max-width: 90%; /* Adjust width for small screens */
+                max-width: 90%;
             }
             .process-grid, .benefits-grid {
                 grid-template-columns: 1fr;
@@ -596,13 +668,16 @@
 
         @media (max-width: 480px) {
             .hero-content {
-                padding: 1rem;
+                padding: 1.5rem;
             }
             .project-title {
-                font-size: 2.5rem;
+                font-size: 18vw; /* Even larger for very small screens */
+                letter-spacing: 2px;
             }
-            .project-subtitle {
-                font-size: 1.3rem;
+            .project-subtitle-container {
+                font-size: 4.5vw;
+                gap: 1rem;
+                flex-direction: column; /* Stack subtitle words */
             }
             .key-message h2, .process-section h2, .benefits h2 {
                 font-size: 2.2rem;
@@ -635,25 +710,31 @@
 <body>
     <section class="hero">
         <div class="hero-content">
+            <!-- Light effect moving in the Hero background -->
+            <div class="background-light"></div>
             <h1 class="project-title">With You</h1>
-            <p class="project-subtitle">Safe. Legal. Human. Rethinking Migration.</p>
-            <p>Our mission is to offer a complete, safe, and ethical path for <u>workers</u> from all over the world to find meaningful employment and a new home in Italy. <u>The entire process, from the Italian course to job placement, is completely free.</u> We fight against human trafficking.</p>
-            <p>We believe in a future where migration is a journey of empowerment, not uncertainty. Your well-being is at the heart of everything we do.</p>
+            <div class="project-subtitle-container">
+                <span class="project-subtitle-word">Safe.</span>
+                <span class="project-subtitle-word">Legal.</span>
+                <span class="project-subtitle-word">Human.</span>
+            </div>
+            <p style="animation-delay: 4.5s;">Our mission is to offer a complete, safe, and ethical path for <u>workers</u> from all over the world to find meaningful employment and a new home in Italy. <u>The entire process, from the Italian course to job placement, is completely free.</u> We fight against human trafficking.</p>
+            <p style="animation-delay: 5s;">We believe in a future where migration is a journey of empowerment, not uncertainty. Your well-being is at the heart of everything we do.</p>
         </div>
     </section>
 
     <section class="key-message">
         <div class="container">
             <h2>Our Vision: Migration Reimagined</h2>
-            <p>The "With You" project completely rethinks the migratory process. We empower workers by providing them with the tools and support they need <u>before</u> they even leave their home country.</p>
+            <p>The "With You" project completely rethinks the migration process. We empower workers by providing them with the tools and support they need <u>before</u> they even leave their country of origin.</p>
             <a href="https://forms.gle/v3JiFK9ZUdDPbFGa8" target="_blank" class="cta-button" rel="noopener noreferrer">
                 Apply Now to Work in Italy!
             </a>
 
             <div class="additional-options">
                 <div class="option-card animation-element">
-                    <h3>For Migratory Agents</h3>
-                    <p>Are you a migratory agent or an organization with a vision for ethical migration? Join our global network and help us redefine the future of safe migration. If you are not yet an ethical migratory agent, we offer you the <u>opportunity to train</u> to become one.</p>
+                    <h3>For Migration Agents</h3>
+                    <p>Are you a migration agent or an organization with a vision for ethical migration? Join our global network and help us redefine the future of safe migration. If you are not yet an ethical migration agent, we offer you the <u>possibility to train</u> to become one.</p>
                     <a href="https://docs.google.com/forms/d/1_hxJzA6YJd8lsXXufJnDxTBLg3QjNp8CexH9LfJQEEM/edit" target="_blank" class="option-button" rel="noopener noreferrer">
                         Partner With Us
                     </a>
@@ -670,86 +751,80 @@
         </div>
     </section>
 
-    ---
-
     <section class="process-section text-center">
         <div class="container">
             <h2>The "With You" Journey: Your Step-by-Step Path to Italy</h2>
             <div class="process-grid">
-                <div class="process-step-card">
+                <div class="process-step-card animation-element">
                     <div class="step-number">1</div>
                     <h3 class="step-title">Language Learning and CV Submission</h3>
-                    <p class="step-description">Start your <u>free</u> Italian course. Upon registration, you'll have the opportunity to upload your resume to begin the job search process.</p>
+                    <p class="step-description">Start your <u>free</u> Italian course. Upon registration, you will have the opportunity to upload your resume to begin the job search process.</p>
                 </div>
-                <div class="process-step-card">
+                <div class="process-step-card animation-element">
                     <div class="step-number">2</div>
                     <h3 class="step-title">Company Search and Qualification Equivalence</h3>
-                    <p class="step-description">While you study, we begin searching for Italian and European companies interested in your professional profile. Simultaneously, we'll start the apostille and sworn translation process for your academic qualifications.</p>
+                    <p class="step-description">While you study, we begin the search for Italian and European companies interested in your professional profile. Simultaneously, we will start the apostille and sworn translation process for your academic qualifications.</p>
                 </div>
-                <div class="process-step-card">
+                <div class="process-step-card animation-element">
                     <div class="step-number">3</div>
                     <h3 class="step-title">First Online Interview (Native Language)</h3>
-                    <p class="step-description">Conduct your first online job interview with potential employers in your native language, ensuring clear communication and your total comfort.</p>
+                    <p class="step-description">Conduct your first online job interview with potential employers in your native language, ensuring clear communication and your complete comfort.</p>
                 </div>
-                <div class="process-step-card">
+                <div class="process-step-card animation-element">
                     <div class="step-number">4</div>
                     <h3 class="step-title">Second Interview (Italian)</h3>
-                    <p class="step-description">Upon completion of your Italian course, you'll have a second interview with the interested company, demonstrating your progress and linguistic preparation.</p>
+                    <p class="step-description">Upon completion of your Italian course, you will have a second interview with the interested company, demonstrating your progress and linguistic preparation.</p>
                 </div>
-                <div class="process-step-card">
+                <div class="process-step-card animation-element">
                     <div class="step-number">5</div>
                     <h3 class="step-title">Contract and Work Permit</h3>
-                    <p class="step-description">If the company is satisfied, they will send you the contract to sign and apply for your work permit on the Italian immigration portal for submission to the Italian Embassy in your country.</p>
+                    <p class="step-description">If the company is satisfied, they will send you the contract to sign and request your work permit from the Italian immigration portal for submission to the Italian Embassy in your country.</p>
                 </div>
-                <div class="process-step-card">
+                <div class="process-step-card animation-element">
                     <div class="step-number">6</div>
                     <h3 class="step-title">Arrival in Italy and Immediate Start</h3>
-                    <p class="step-description">Pick up your work permit at the embassy. The company will send you the flight ticket and provide you with the address of your accommodation in Italy. You will arrive and start working the next day.</p>
+                    <p class="step-description">Pick up your work permit at the embassy. The company will send you the plane ticket and provide you with the address of your accommodation in Italy. You will arrive and start working the next day.</p>
                 </div>
             </div>
         </div>
     </section>
-
-    ---
 
     <section class="benefits text-center">
         <div class="container">
             <h2>Ethical Features of "With You"</h2>
             <div class="benefits-grid">
-                <div class="benefit-card">
-                    <h3>Absolute Security</h3>
-                    <p>Eliminate the risks of exploitation and uncertainty. Every step of your journey is legally backed, fully supported, and designed for your protection.</p>
+                <div class="benefit-card animation-element">
+                    <h3>Absolute Safety</h3>
+                    <p>Eliminate the risks of exploitation and uncertainty. Every step of your journey is legally supported, fully backed, and designed for your protection.</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card animation-element">
                     <h3>Financial Security</h3>
-                    <p>Start earning money <u>IMMEDIATELY</u> upon arrival. No wasted time, no financial pressure from job searching. Your future is secure from the start.</p>
+                    <p>Start earning money IMMEDIATELY upon arrival. No wasted time, no financial pressure from job searching. Your future is secure from the start.</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card animation-element">
                     <h3>Cultural Integration</h3>
                     <p>Our language and culture courses prepare you not just for a job, but for a new life. Feel at home faster and integrate seamlessly.</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card animation-element">
                     <h3>Professional Growth</h3>
                     <p>Gain valuable international experience and build a solid, sustainable career foundation in Europe. Unlock your full potential.</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card animation-element">
                     <h3>FAMILY SUPPORT</h3>
-                    <p>With employment and accommodation guaranteed, family reunification is a clear and achievable goal.</p>
+                    <p>With guaranteed employment and accommodation, family reunification is a clear and achievable goal.</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card animation-element">
                     <h3>Ethical Migration</h3>
-                    <p>Join a movement that prioritizes human dignity, transparency, and sustainable migratory practices. Be part of a better way.</p>
+                    <p>Join a movement that prioritizes human dignity, transparency, and sustainable migration practices. Be part of a better way.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    ---
-
     <footer class="footer">
         <div class="footer-content">
             <h3 class="footer-title">With You</h3>
-            <p>Your secure bridge to new work opportunities in Italy.</p>
+            <p>Your safe bridge to new job opportunities in Italy.</p>
             <div class="contact-info">
                 <p>✉️ Email: <a href="mailto:info@tycheilma.com" class="contact-link">info@tycheilma.com</a></p>
                 <p>📞 WhatsApp: <a href="https://wa.me/393462267861" class="contact-link" target="_blank">+39 346 226 7861</a></p>
@@ -776,25 +851,37 @@
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
-                    entry.target.style.animationPlayState = 'running';
+                    entry.target.style.filter = 'blur(0)'; /* Removes blur on intersection */
+                    // For elements with predefined CSS animations, restart them if necessary
+                    if (entry.target.classList.contains('animation-element')) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                } else {
+                    // Optional: reset state when element leaves view
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(50px)';
+                    entry.target.style.filter = 'blur(10px)';
+                    if (entry.target.classList.contains('animation-element')) {
+                        entry.target.style.animationPlayState = 'paused';
+                    }
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.process-step-card, .benefit-card, .key-message h2, .key-message p, .cta-button, .process-section h2, .benefits h2, .option-card').forEach(el => {
+        // Apply observer to all elements that should animate on scroll
+        document.querySelectorAll('.key-message h2, .key-message p, .cta-button, .option-card, .process-step-card, .benefits h2, .benefits-grid .benefit-card, .process-section h2').forEach(el => {
             el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.6s ease';
+            el.style.transform = 'translateY(50px)';
+            el.style.filter = 'blur(10px)';
+            el.style.transition = 'all 1s ease-out'; /* Slower transition for cinematic effect */
             el.style.animationFillMode = 'backwards';
             observer.observe(el);
         });
 
-        document.querySelector('.hero-content').style.animation = 'fadeInUp 1s ease-out forwards';
-        document.querySelector('.project-title').style.animation = 'fadeInUp 1s ease-out 0.6s both';
-        document.querySelector('.project-subtitle').style.animation = 'fadeInUp 1s ease-out 0.8s both';
-        document.querySelectorAll('.hero p').forEach((p, index) => {
-            p.style.animation = `fadeInUp 1s ease-out ${1 + index * 0.2}s both`;
-        });
+        // Hero content has slowZoomIn and opacity: 0 in CSS.
+        // Paragraphs inside hero have specific delays in HTML.
+        // No need to observe these elements with Intersection Observer in this case.
+
     </script>
 </body>
 </html>
